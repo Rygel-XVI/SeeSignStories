@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import YouTube from 'react-youtube';
+import VideoCard from '../components/VideoCard';
 
 
 class Main extends Component {
@@ -12,8 +12,8 @@ class Main extends Component {
   }
 
   displayVideo() {
-    return this.state.videos.map(v => <YouTube videoId={v.id.videoId} key={v.id.videoId} />
-)}
+    return this.state.videos.map(v => <VideoCard id={v.id} videoId={v.id.videoId} />
+    )}
 
   componentDidMount() {
       // all of the user stats
@@ -28,7 +28,7 @@ class Main extends Component {
 
   render() {
     return (
-      <div className="Main">
+      <div className="main videos">
         {this.displayVideo()}
       </div>
     )}
