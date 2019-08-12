@@ -16,17 +16,7 @@ class Main extends Component {
   }
 
   displayVideo() {
-<<<<<<< HEAD
     return this.state.videos.map(v => <VideoCard id={v.id} videoId={v.id.videoId} key={v.id.videoId}/>
-=======
-
-    // const opts = {
-    //   width: 100%,
-    //   height: 100%
-    // }
-
-    return this.state.videos.map(v => <VideoCard id={v.id} videoId={v.id.videoId} key={v.id.videoId} opts={this.state.opts}/>
->>>>>>> wip
   )}
 
   componentDidMount() {
