@@ -12,7 +12,7 @@ class Main extends Component {
   }
 
   displayVideo() {
-    return this.state.videos.map(v => <VideoCard id={v.id} videoId={v.id.videoId} />
+    return this.state.videos.map(v => <VideoCard id={v.id} videoId={v.id.videoId} key={v.id.videoId}/>
     )}
 
   componentDidMount() {
