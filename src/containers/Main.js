@@ -7,12 +7,26 @@ class Main extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      videos: []
+      videos: [],
+      opts: {
+        width: "100%",
+        height: '100%'
+      }
     }
   }
 
   displayVideo() {
+<<<<<<< HEAD
     return this.state.videos.map(v => <VideoCard id={v.id} videoId={v.id.videoId} key={v.id.videoId}/>
+=======
+
+    // const opts = {
+    //   width: 100%,
+    //   height: 100%
+    // }
+
+    return this.state.videos.map(v => <VideoCard id={v.id} videoId={v.id.videoId} key={v.id.videoId} opts={this.state.opts}/>
+>>>>>>> wip
   )}
 
   componentDidMount() {
@@ -27,6 +41,7 @@ class Main extends Component {
     }
 
   render() {
+
     return (
       <div className="main videos">
         {this.displayVideo()}
