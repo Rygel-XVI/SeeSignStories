@@ -13,13 +13,13 @@ class Main extends Component {
 
   displayVideo() {
     return this.state.videos.map(v => <VideoCard id={v.id} videoId={v.id.videoId} key={v.id.videoId}/>
-    )}
+  )}
 
   componentDidMount() {
       // all of the user stats
       // fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=UCzm23K3jWedsp9SQejnOrpA&key=${process.env.REACT_APP_KEY}`)
 
-      fetch(`https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_KEY}&channelId=${process.env.REACT_APP_CHANNEL_ID}&part=snippet,id&type=video`)
+      fetch(`https://www.googleapis.com/youtube/v3/search?key=${REACT_APP_KEY}&channelId=${REACT_APP_CHANNEL_ID}&part=snippet,id&type=video`)
       .then(resp => resp.json())
       .then((json) => {
       this.setState({ videos: json.items })
