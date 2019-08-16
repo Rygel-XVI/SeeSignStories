@@ -9,6 +9,8 @@ function App() {
   return (
     <div className="App">
       <Banner />
+      <hr border="50px" color='black'/>
+      <br />
       <Main />
     </div>
   );

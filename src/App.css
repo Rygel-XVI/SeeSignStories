@@ -1,7 +1,27 @@
 html body {
-  background-color: #5d7996;
+  background-color: #7091b3;
   margin: 2%;
   display: flex;
+}
+
+.banner {
+  display: flex;
+  height: 150px;
+  width: 100%;
+  text-align: center;
+}
+
+.banner-text {
+  text-align: center;
+  width: 100%;
+  font-family: courier;
+  font-size: 64px;
+}
+
+.logo-img {
+  display: flex;
+  align-self: center;
+  max-height:100%;
 }
 
 .videos {
@@ -11,9 +31,9 @@ html body {
 }
 
 .video-card {
-  margin: 2%;
-  padding: 1%;
-  background-color: #26354a;
+  margin: 1%;
+  padding: 0.75%;
+  background-color: #445261;
 }
 
 .grade .button {
