@@ -8,14 +8,15 @@ html body {
   display: flex;
   height: 150px;
   width: 100%;
-  text-align: center;
 }
 
 .banner-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   width: 100%;
-  font-family: courier;
-  font-size: 64px;
+  font-size: 2.5em;
 }
 
 .logo-img {
