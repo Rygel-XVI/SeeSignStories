@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ButtonNav from './ButtonNav'
 import VideoCard from '../components/VideoCard';
 
 
@@ -18,6 +19,11 @@ class Main extends Component {
   displayVideo() {
     return this.state.videos.map(v => <VideoCard key={v.id} id={v.id} tags={v.snippet.tags}  title={v.snippet.title} opts={this.state.opts}/>
   )}
+
+  displaySOW() {
+    let storyOfWeek = this.state.videos.find(v => v.snippet.tags.includes("Folk Tale"))
+    return <VideoCard key={storyOfWeek.id} id={storyOfWeek.id} tags={storyOfWeek.snippet.tags}  title={storyOfWeek.snippet.title} opts={this.state.opts}/>
+  }
 
   fetchVideoIds() {
     let vId = []
@@ -45,7 +51,8 @@ class Main extends Component {
 
     return (
       <div className="main videos">
-        {this.displayVideo()}
+      <ButtonNav />
+      {this.displaySOW()}
       </div>
     )}
 }
