@@ -9,6 +9,7 @@ class Main extends Component {
     super(props)
     this.state = {
       videos: [],
+      storyOfWeek: 'No Story of the Week',
       opts: {
         width: "100%",
         height: '100%'
@@ -21,8 +22,13 @@ class Main extends Component {
   )}
 
   displaySOW() {
-    let storyOfWeek = this.state.videos.find(v => v.snippet.tags.includes("Folk Tale"))
-    return <VideoCard key={storyOfWeek.id} id={storyOfWeek.id} tags={storyOfWeek.snippet.tags}  title={storyOfWeek.snippet.title} opts={this.state.opts}/>
+    let sow = this.state.storyOfWeek
+
+    if (sow === "No Story of the Week") {
+      return sow
+    } else {
+      return <VideoCard key={sow.id} id={sow.id} tags={sow.snippet.tags}  title={sow.snippet.title} opts={this.state.opts}/>
+    }
   }
 
   fetchVideoIds() {
@@ -39,7 +45,11 @@ class Main extends Component {
     fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoIdString}&key=${process.env.REACT_APP_KEY}`)
       .then(resp => resp.json())
       .then((json) => {
-        this.setState({ videos: json.items})
+        let storyOfWeek = json.items.find(v => v.snippet.tags.includes("Folk Tale")) || "No Story of the Week"
+        this.setState({
+          videos: json.items,
+          storyOfWeek: storyOfWeek
+        })
     })
   }
 
@@ -51,8 +61,11 @@ class Main extends Component {
 
     return (
       <div className="main videos">
-      <ButtonNav />
-      {this.displaySOW()}
+      <h3>Story of the Week</h3>
+      <br />
+      <div className="sow">
+        {this.displaySOW()}
+        </ div>
       </div>
     )}
 }

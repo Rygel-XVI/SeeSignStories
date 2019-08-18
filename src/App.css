@@ -2,6 +2,11 @@ html body {
   background-color: #7091b3;
   margin: 2%;
   display: flex;
+  width: 100%;
+}
+
+#root {
+  width: 100%;
 }
 
 .banner {
@@ -23,6 +28,12 @@ html body {
   display: flex;
   align-self: center;
   max-height:100%;
+}
+
+.main {
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
 }
 
 .videos {
