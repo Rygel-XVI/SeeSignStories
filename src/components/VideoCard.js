@@ -1,9 +1,9 @@
 import React from 'react'
 import YouTube from 'react-youtube';
 
-const VideoCard = ({ id, videoId, opts }) => (
+const VideoCard = ({ id, tags,title, opts }) => (
   <div className="video-card">
-    <YouTube videoId={videoId} key={videoId} id={videoId} />
+    <YouTube videoId={id} key={id} />
   </div>
 )
 
