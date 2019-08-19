@@ -11,14 +11,14 @@ class Main extends Component {
       videos: [],
       storyOfWeek: 'No Story of the Week',
       opts: {
-        width: "100%",
-        height: '100%'
+        height: '100%',
+        width: '100%',
       }
     }
   }
 
   displayVideo() {
-    return this.state.videos.map(v => <VideoCard key={v.id} id={v.id} tags={v.snippet.tags}  title={v.snippet.title} opts={this.state.opts}/>
+    return this.state.videos.map(v => <VideoCard key={v.id} id={v.id} tags={v.snippet.tags}  title={v.snippet.title} />
   )}
 
   displaySOW() {
@@ -61,11 +61,12 @@ class Main extends Component {
 
     return (
       <div className="main videos">
-      <h3>Story of the Week</h3>
+      <h1>Story of the Week</h1>
       <br />
       <div className="sow">
         {this.displaySOW()}
         </ div>
+        <ButtonNav videos={this.state.videos} />
       </div>
     )}
 }

@@ -2,7 +2,7 @@ html body {
   background-color: #7091b3;
   margin: 2%;
   display: flex;
-  width: 100%;
+  width: 96%;
 }
 
 #root {
@@ -36,6 +36,12 @@ html body {
   text-align: center;
 }
 
+.sow {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
 .videos {
   justify-content: center;
   display: flex;
@@ -52,4 +58,40 @@ html body {
   width: 50px;
   height: 50px;
   color: black;
+}
+
+.buttons-nav {
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons-1 {
+  font-family: "Courier New";
+  border: 8px solid;
+  border-radius: 56px;
+  font-size: 28px;
+  font-weight: bolder;
+  margin: 2%;
+  padding: 4%;
+  width: 15%;
+  height: 200px;
+  text-align: center;
+}
+
+.buttons-1 text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+button.buttons-1.orange {
+  background: #f08c00;
+}
+
+button.buttons-1.green {
+  background: #15c206;
+}
+
+button.buttons-1.red {
+  background: #e31c0e;
 }
