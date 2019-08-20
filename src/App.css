@@ -71,9 +71,9 @@ html body {
   border-radius: 56px;
   font-size: 28px;
   font-weight: bolder;
-  margin: 2%;
-  padding: 4%;
-  width: 15%;
+  margin: 4px;
+  padding: 8px;
+  width: 200px;
   height: 200px;
   text-align: center;
 }
