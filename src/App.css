@@ -69,8 +69,10 @@ html body {
   font-family: "Courier New";
   border: 8px solid;
   border-radius: 56px;
+  border-color: black;
   font-size: 28px;
   font-weight: bolder;
+  color: black;
   margin: 20px;
   padding: 15px;
   width: 200px;
