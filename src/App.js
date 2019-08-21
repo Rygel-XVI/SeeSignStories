@@ -12,7 +12,6 @@ function App() {
       <Banner />
       <hr border="50px" color='black'/>
       <br />
-      <Main />
       {routes}
     </div>
   );

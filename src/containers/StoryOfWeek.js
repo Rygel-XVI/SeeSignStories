@@ -8,7 +8,6 @@ class StoryOfWeek extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      videos: [],
       storyOfWeek: 'No Story of the Week',
       opts: {
         height: '100%',
