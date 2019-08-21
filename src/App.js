@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 
+import routes from './routes'
 import Main from './containers/Main'
 import Banner from './components/Banner'
 
@@ -12,6 +13,7 @@ function App() {
       <hr border="50px" color='black'/>
       <br />
       <Main />
+      {routes}
     </div>
   );
 }
