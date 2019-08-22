@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './App.css';
 
 import routes from './routes'
 import Main from './containers/Main'
+import ARLevel from './containers/ARLevel'
 import Banner from './components/Banner'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+
 
 
 
@@ -57,6 +59,7 @@ class App extends Component {
           <Router>
           <Switch id='routes'>
           <Route exact path="/" render={() => <Main videos={this.state.videos} />} />
+          <Route path="/arlevel" render={() => <ARLevel videos={this.state.videos} />} />
           </Switch>
           </ Router>
           </ div>
