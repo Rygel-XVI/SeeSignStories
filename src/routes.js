@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import StoryOfWeek from './containers/StoryOfWeek'
+import StoryOfWeek from './components/StoryOfWeek'
 import Main from './containers/Main'
 
 export default (

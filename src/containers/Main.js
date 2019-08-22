@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ButtonNav from './ButtonNav'
 import VideoCard from '../components/VideoCard';
+import StoryOfWeek from '../components/StoryOfWeek'
 
 
 class Main extends Component {
@@ -15,25 +16,15 @@ class Main extends Component {
   //   return this.state.videos.map(v => <VideoCard key={v.id} id={v.id} tags={v.snippet.tags}  title={v.snippet.title} />
   // )}
 
-  displaySOW() {
-    let sow = this.props.videos.find(v => v.snippet.tags.includes("Folk Tale")) || "No Story of the Week"
-
-    if (sow === "No Story of the Week") {
-      return sow
-    } else {
-      return <VideoCard key={sow.id} id={sow.id} tags={sow.snippet.tags}  title={sow.snippet.title} opts={this.state.opts}/>
-    }
+  getSOW() {
+    return this.props.videos.find(v => v.snippet.tags.includes("Folk Tale")) || "No Story of the Week"
   }
 
   render() {
 
     return (
       <div className="main videos">
-      <h1>Story of the Week</h1>
-      <br />
-      <div className="sow">
-        {this.displaySOW()}
-        </ div>
+        <StoryOfWeek sow={this.getSOW()} />
         <ButtonNav videos={this.state.videos} />
       </div>
     )}
