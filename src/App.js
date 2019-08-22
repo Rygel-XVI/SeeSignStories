@@ -22,6 +22,17 @@ class App extends Component {
     }
   }
 
+// setting tag filters for routes
+getARLevels() {
+  let t = this.state.videos.map(v => v.snippet.tags.filter(t => t.match(/ar/i))).flat()
+  return t.map(s => s.slice(3)).sort()
+}
+
+
+
+/// fetch requests
+
+
   fetchVideoIds() {
     let vId = []
     fetch(`https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_KEY}&channelId=${process.env.REACT_APP_CHANNEL_ID}&part=snippet,id&type=video`)
@@ -59,7 +70,7 @@ class App extends Component {
           <Router>
           <Switch id='routes'>
           <Route exact path="/" render={() => <Main videos={this.state.videos} />} />
-          <Route path="/arlevel" render={() => <ARLevel videos={this.state.videos} />} />
+          <Route path="/arlevel" render={() => <ARLevel videos={this.state.videos}  tags={this.getARLevels()} />} />
           </Switch>
           </ Router>
           </ div>

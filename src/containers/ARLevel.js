@@ -14,7 +14,7 @@ class ARLevel extends Component {
 
     return (
       <div className="ar-level">
-
+      AR Level Component
       </div>
     )}
 }
