@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import Button from '../components/Button'
+import LinkButton from '../components/LinkButton'
 
 class ButtonNav extends Component {
 
   render() {
     return (
-      <div className="buttons-nav">
-      <Button text="Genre" klass="buttons-1 red" path="genre"/>
-      <Button text="Grade" klass="buttons-1 orange" path="grade"/>
-      <Button text="AR Level" klass="buttons-1 green" path="arlevel"/>
+      <div className="buttons-div">
+      <LinkButton text="Genre" klass="button link-button red" path="genre" />
+      <LinkButton text="Grade" klass="button link-button orange" path="grade"/>
+      <LinkButton text="AR Level" klass="button link-button green" path="arlevel"/>
       </ div>
     )
   }

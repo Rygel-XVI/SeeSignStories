@@ -24,8 +24,9 @@ class App extends Component {
 
 // setting tag filters for routes
 getARLevels() {
-  let t = this.state.videos.map(v => v.snippet.tags.filter(t => t.match(/ar/i))).flat()
-  return t.map(s => s.slice(3)).sort()
+  let tags = this.state.videos.map(v => v.snippet.tags.filter(t => t.match(/ar/i))).flat()
+  tags = tags.map(s => s.slice(3)).sort()
+  return [...new Set(tags)]
 }
 
 

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router'
 
-const Button = ({klass, text, path, history}) => (
-    <button onClick={(event) => history.push(`/${path}`)} className={klass} type="button" >{text}</ button>
+const Button = ({klass, text, handleClick}) => (
+  <button key={text} className={klass} onClick={handleClick}>{text}</ button>
 )
 
-export default withRouter(Button)
+export default Button
