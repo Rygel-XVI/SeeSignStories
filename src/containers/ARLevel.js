@@ -13,6 +13,10 @@ class ARLevel extends Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
+
+/*
+factor functions out into another file
+*/
   tagMatches(tag, arLevel) {
     if (tag.match(/^ar/i) && this.inRange(tag, arLevel)) {
       return true
@@ -29,6 +33,8 @@ class ARLevel extends Component {
     return (arLow >= arLevel[0] && arHi <= arLevel[1]) ? true : false
   }
 
+///////
+
   handleClick(event) {
     let filteredVideos = []
     let arLevel = event.target.textContent.split(/[a-zA-Z]+|\s+|-/)
@@ -42,7 +48,6 @@ class ARLevel extends Component {
     }
 
     renderButtons() {
-      // debugger;
       return this.props.tags.map(level => {
         return <Button klass='button black' text={level} handleClick={this.handleClick} />
       })

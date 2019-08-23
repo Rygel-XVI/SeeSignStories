@@ -5,6 +5,8 @@ import './App.css';
 import routes from './routes'
 import Main from './containers/Main'
 import ARLevel from './containers/ARLevel'
+import GradeLevel from './containers/GradeLevel'
+import Genre from './containers/Genre'
 import Banner from './components/Banner'
 
 
@@ -30,9 +32,10 @@ getARLevels() {
 }
 
 
-
+/*
+Move the following to Redux note to self...add redux...
+*/
 /// fetch requests
-
 
   fetchVideoIds() {
     let vId = []
@@ -58,8 +61,6 @@ getARLevels() {
         this.fetchVideoIds()
       }
 
-      // create back button that only shows up if route !== '/'
-
       render() {
 
         return (
@@ -72,6 +73,8 @@ getARLevels() {
           <Switch id='routes'>
           <Route exact path="/" render={() => <Main videos={this.state.videos} />} />
           <Route path="/arlevel" render={() => <ARLevel videos={this.state.videos}  tags={this.getARLevels()} />} />
+          <Route path="/gradelevel" render={() => <GradeLevel videos={this.state.videos}   />} />
+          <Route path="/genre" render={() => <Genre videos={this.state.videos}   />} />
           </Switch>
           </ Router>
           </ div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-class Genres Component {
+class Genre extends Component {
 
   getGenres() {
 
@@ -11,10 +11,9 @@ class Genres Component {
 
     return (
       <div className="genre">
+      To be implemented when the teacher adds the proper tagging on the videos =)
       </div>
     )}
-}
-
 }
 
 export default Genre;
