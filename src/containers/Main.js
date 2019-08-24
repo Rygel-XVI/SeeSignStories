@@ -12,10 +12,6 @@ class Main extends Component {
     }
   }
 
-  // displayVideo() {
-  //   return this.state.videos.map(v => <VideoCard key={v.id} id={v.id} tags={v.snippet.tags}  title={v.snippet.title} />
-  // )}
-
 
   displaySOW() {
     let sow = this.props.videos.find(v => v.snippet.tags.includes("Story of the Week"))
