@@ -16,15 +16,17 @@ class Main extends Component {
   //   return this.state.videos.map(v => <VideoCard key={v.id} id={v.id} tags={v.snippet.tags}  title={v.snippet.title} />
   // )}
 
-  getSOW() {
-    return this.props.videos.find(v => v.snippet.tags.includes("Story of the Week")) || "No Story of the Week"
+
+  displaySOW() {
+    let sow = this.props.videos.find(v => v.snippet.tags.includes("Story of the Week"))
+    return sow !== undefined ? <StoryOfWeek sow={sow} /> : "No Story of the Week"
   }
 
   render() {
 
     return (
       <div className="main videos">
-        <StoryOfWeek sow={this.getSOW()} />
+        {this.displaySOW()}
         <ButtonNav videos={this.state.videos} />
       </div>
     )}

@@ -12,17 +12,14 @@ class StoryOfWeek extends Component {
     debugger;
   }
 
-  displaySOW() {
-    const sow = this.props.sow
-
-    return sow === "No Story of the Week" ? sow : <VideoCard key={sow.id} id={sow.id} tags={sow.snippet.tags}  title={sow.snippet.title} onPlayVideo={this.onPlayVideo}/>
-  }
-
   render() {
 
     return (
+      <div>
+      <h1>Story of the Week</h1>
       <div className="sow">
-      {this.displaySOW()}
+      <VideoCard key={this.props.sow.id} id={this.props.sow.id} tags={this.props.sow.snippet.tags}  title={this.props.sow.snippet.title} onPlayVideo={this.onPlayVideo}/>
+      </ div>
       </ div>
     )
   }
