@@ -17,7 +17,7 @@ class Main extends Component {
   // )}
 
   getSOW() {
-    return this.props.videos.find(v => v.snippet.tags.includes("Folk Tale")) || "No Story of the Week"
+    return this.props.videos.find(v => v.snippet.tags.includes("Story of the Week")) || "No Story of the Week"
   }
 
   render() {
