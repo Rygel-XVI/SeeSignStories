@@ -26,8 +26,14 @@ class App extends Component {
 
 // setting tag filters for routes
 getARLevels() {
-  let tags = this.state.videos.map(v => v.snippet.tags.filter(t => t.match(/ar/i))).flat()
+  let tags = this.state.videos.map(v => v.snippet.tags.filter(t => t.match(/^ar/i))).flat()
   tags = tags.map(s => s.slice(3)).sort()
+  return [...new Set(tags)]
+}
+
+getGradeLevels() {
+  let tags = this.state.videos.map(v => v.snippet.tags.filter(t => t.match(/^grade/i))).flat()
+  tags = tags.map(s => s.slice(6)).sort()
   return [...new Set(tags)]
 }
 
@@ -73,7 +79,7 @@ Move the following to Redux note to self...add redux...
           <Switch id='routes'>
           <Route exact path="/" render={() => <Main videos={this.state.videos} />} />
           <Route path="/arlevel" render={() => <ARLevel videos={this.state.videos}  tags={this.getARLevels()} />} />
-          <Route path="/gradelevel" render={() => <GradeLevel videos={this.state.videos}   />} />
+          <Route path="/gradelevel" render={() => <GradeLevel videos={this.state.videos}  tags={this.getGradeLevels()} />} />
           <Route path="/genre" render={() => <Genre videos={this.state.videos}   />} />
           </Switch>
           </ Router>
