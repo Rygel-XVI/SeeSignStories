@@ -11,7 +11,7 @@ class Genre extends Component {
 
     return (
       <div className="genre">
-      To be implemented when the teacher adds the proper tagging on the videos =)
+      <h1>In progress when we figure out how we want this section to work</h1>
       </div>
     )}
 }

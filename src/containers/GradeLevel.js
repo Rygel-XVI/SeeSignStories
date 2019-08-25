@@ -14,10 +14,6 @@ class GradeLevel extends Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-
-/*
-factor functions out into another file
-*/
   tagMatches(tag, arLevel) {
     if (tag.match(/^grade/i) && this.inRange(tag, arLevel)) {
       return true
@@ -25,16 +21,6 @@ factor functions out into another file
       return false
     }
   }
-
-  // inRange(tag, arLevel) {
-  //   let arRange = tag.split(/[a-zA-Z]+|\s+|-/).slice(2)
-  //   let arLow = arRange[0]
-  //   let arHi = arRange[1]
-  //
-  //   return (arLow >= arLevel[0] && arHi <= arLevel[1]) ? true : false
-  // }
-
-///////
 
   handleClick(event) {
     let filteredVideos = []
@@ -54,7 +40,7 @@ factor functions out into another file
     }
 
     renderVideos() {
-      return this.state.filteredVideos.map(v => <VideoCard key={v.id} id={v.id} tags={v.snippet.tags}  title={v.snippet.title} />)
+      return this.state.filteredVideos.map(v => <VideoCard key={v.id} id={v.id} tags={v.snippet.tags}  title={v.snippet.title} thumbnails={v.snippet.thumbnails}/>)
     }
 
     render() {
