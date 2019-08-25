@@ -45,7 +45,7 @@ Move the following to Redux note to self...add redux...
 
   fetchVideoIds() {
     let vId = []
-    fetch(`https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_KEY}&channelId=${process.env.REACT_APP_CHANNEL_ID}&part=snippet,id&type=video`)
+    fetch(`https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_KEY}&channelId=${process.env.REACT_APP_CHANNEL_ID}&part=snippet,id&type=video&maxResults=50`)
       .then(resp => resp.json())
       .then((json) => {
         vId = json.items.map(v => v.id.videoId).join(',')
