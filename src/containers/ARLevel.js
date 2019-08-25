@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import VideoCard from '../components/VideoCard2';
+import VideoCard from '../components/VideoCard';
 import Button from '../components/Button'
 
 

@@ -11,7 +11,7 @@ class Genre extends Component {
 
     return (
       <div className="genre">
-      <h1>In progress when we figure out how we want this section to work</h1>
+      <h1>In progress...</h1>
       </div>
     )}
 }
