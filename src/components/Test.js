@@ -1,54 +1,59 @@
 import React, { Component } from 'react'
+import { findDOMNode } from 'react-dom'
+
 import YouTube from 'react-youtube'
-import Fullscreen from 'react-full-screen'
+import screenfull from 'screenfull'
+// import ReactPlayer from 'react-player'
+import YouTubePlayer from 'react-player/lib/players/YouTube'
+
 
 class Test extends Component {
   constructor(props) {
     super(props)
     this.state = ({
-      isFull: false,
       opts: {
-        playerVars: {
-          autoplay: 0
+        width: '100%',
+        height: '100%',
+        youtube: {
+          playerVars: {
+            showinfo: 1,
+            autoplay: 0
+          }
         }
       }
     })
-    this.goFull = this.goFull.bind(this)
-    this.stopFull = this.stopFull.bind(this)
+    this.goFullScreen = this.goFullScreen.bind(this)
+    this.stopFullScreen = this.stopFullScreen.bind(this)
   }
 
 
-    goFull() {
-      this.setState({ isFull: true });
-    }
+  goFullScreen = () => {
+    screenfull.request(findDOMNode(this.refs.player))
+  }
 
-    stopFull() {
-      this.setState({ isFull: false });
-    }
+  stopFullScreen = () => {
+    screenfull.exit(findDOMNode(this.refs.player))
+  }
 
-  // make a separate route
   render() {
     return (
       <div>
-      <Fullscreen
-        enabled={this.state.isFull}
-        onChange={isFull => this.setState({isFull})}
-      />
+      <YouTubePlayer
+      ref='player'
+      url={`https://www.youtube.com/embed/${this.props.id}`}
+        key={this.props.id}
 
-      <YouTube
-      videoId={this.props.id}
-      key={this.props.id}
-      opts={this.state.opts}
-      containerClassName='youtube-video'
-      onReady={this._onReady}
-      onPlay={this.goFull}
-      onPause={this.stopFull}
-      />
-      </div>
-    )
+        onPlay={this.goFullScreen}
+        onPause={this.stopFullScreen}
+        playing={true}
+        controls
+        />
+
+        </div>
+      )
+    }
+
+
   }
 
-
-}
-
-export default Test;
+  export default Test;
