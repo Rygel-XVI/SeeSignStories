@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import VideoCard from '../components/VideoCard';
+import VideoCard from '../components/VideoCard2';
 import Button from '../components/Button'
 
 
@@ -54,7 +54,7 @@ factor functions out into another file
     }
 
     renderVideos() {
-      return this.state.filteredVideos.map(v => <VideoCard key={v.id} id={v.id} tags={v.snippet.tags}  title={v.snippet.title} />)
+      return this.state.filteredVideos.map(v => <VideoCard key={v.id} id={v.id} tags={v.snippet.tags}  title={v.snippet.title} thumbnails={v.snippet.thumbnails} />)
     }
 
     render() {
