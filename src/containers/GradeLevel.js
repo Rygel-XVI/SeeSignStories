@@ -46,7 +46,7 @@ class GradeLevel extends Component {
     render() {
 
       return (
-        <div className="grade-level">
+        <div className="video-filter-container">
         <h1>Grade Level</h1>
         <div className="buttons-div">
         {this.renderButtons()}

@@ -60,7 +60,7 @@ factor functions out into another file
     render() {
 
       return (
-        <div className="ar-level">
+        <div className="video-filter-container">
         <h1>Accelerated Reader Level</h1>
         <div className="buttons-div">
         {this.renderButtons()}
