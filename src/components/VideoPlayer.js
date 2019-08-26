@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { findDOMNode } from 'react-dom'
 import screenfull from 'screenfull'
-import YouTubePlayer from 'react-player/lib/players/YouTube'
+import ReactPlayer from 'react-player'
+
 
 
 class VideoPlayer extends Component {
@@ -9,11 +10,8 @@ class VideoPlayer extends Component {
     super(props)
     this.state = ({
       opts: {
-        width: '94%',
-        height: '94%',
         youtube: {
           playerVars: {
-            autoplay: 0,
             cc_load_policy: 1,
             modestbranding: 1,
             fs: 0
@@ -37,15 +35,18 @@ class VideoPlayer extends Component {
   render() {
     return (
       <div className="video-player">
-      <YouTubePlayer
-      ref='player'
-      url={`https://www.youtube.com/embed/${this.props.id}`}
-        key={this.props.id}
-        className='react-player'
-        onPlay={this.goFullScreen}
-        onPause={this.stopFullScreen}
-        playing={true}
-        controls
+
+        <ReactPlayer
+        ref='player'
+        url={`https://www.youtube.com/embed/${this.props.id}`}
+          key={this.props.id}
+          className='react-player'
+          onPlay={this.goFullScreen}
+          onPause={this.stopFullScreen}
+          playing={true}
+          config={this.state.opts}
+          controls
+          playsinline
         />
 
         </div>
