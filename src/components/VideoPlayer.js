@@ -45,6 +45,7 @@ class VideoPlayer extends Component {
           onPause={this.stopFullScreen}
           playing={true}
           config={this.state.opts}
+          light={true}
           controls
           playsinline
         />

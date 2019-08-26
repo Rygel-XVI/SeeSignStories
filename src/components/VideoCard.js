@@ -21,29 +21,13 @@ class VideoCard extends Component {
     return <VideoPlayer id={this.props.id} />
   }
 
-  renderImage() {
-    return <img src={this.getThumbnail()} onClick={this.handleClick}/>
-  }
-
-  getThumbnail() {
-    let thumbnails = this.props.thumbnails
-    let res = this.props.thumbnails.default.url
-    if (thumbnails.maxres) {
-      res = this.props.thumbnails.maxres.url
-    } else if (thumbnails.standard) {
-      res = this.props.thumbnails.standard.url
-    } else if (thumbnails.high) {
-      res = this.props.thumbnails.high.url
-    } else if (thumbnails.medium) {
-      res = this.props.thumbnails.medium.url
-    }
-
-    return res
-  }
-
-  renderContent() {
-    return this.state.renderVideo ? this.playVideo() : this.renderImage()
-  }
+  // renderImage() {
+  //   return <img src={this.getThumbnail()} onClick={this.handleClick}/>
+  // }
+  //
+  // renderContent() {
+  //   return this.state.renderVideo ? this.playVideo() : this.renderImage()
+  // }
 
   render() {
     return (
@@ -54,12 +38,13 @@ class VideoCard extends Component {
     </div>
 
     <div className="video-card">
-    {this.renderContent()}
+    {this.playVideo()}
     </div>
 
     </div>
   )
-}
+  }
+
 }
 
 export default VideoCard

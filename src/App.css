@@ -60,6 +60,10 @@ html body {
   background-color: #445261;
 }
 
+.video-title {
+  text-align: center;
+}
+
 .video-player {
   display: flex;
   width: 94%;
