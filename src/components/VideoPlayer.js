@@ -9,8 +9,8 @@ class VideoPlayer extends Component {
     super(props)
     this.state = ({
       opts: {
-        width: '100%',
-        height: '100%',
+        width: '94%',
+        height: '94%',
         youtube: {
           playerVars: {
             autoplay: 0,
@@ -36,11 +36,12 @@ class VideoPlayer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="video-player">
       <YouTubePlayer
       ref='player'
       url={`https://www.youtube.com/embed/${this.props.id}`}
         key={this.props.id}
+        className='react-player'
         onPlay={this.goFullScreen}
         onPause={this.stopFullScreen}
         playing={true}

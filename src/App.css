@@ -54,8 +54,18 @@ html body {
 }
 
 .video-card img {
-  width: 96%;
-  margin: 2%;
+  width: 94%;
+  margin: 1%;
+  padding: 2%;
+  background-color: #445261;
+}
+
+.video-player {
+  display: flex;
+  width: 94%;
+  margin: 1%;
+  padding: 2%;
+  background-color: #445261;
 }
 
 .grade .button {
