@@ -16,8 +16,10 @@ class Test extends Component {
         height: '100%',
         youtube: {
           playerVars: {
-            showinfo: 1,
-            autoplay: 0
+            autoplay: 0,
+            cc_load_policy: 1,
+            modestbranding: 1,
+            fs: 0
           }
         }
       }
@@ -42,7 +44,6 @@ class Test extends Component {
       ref='player'
       url={`https://www.youtube.com/embed/${this.props.id}`}
         key={this.props.id}
-
         onPlay={this.goFullScreen}
         onPause={this.stopFullScreen}
         playing={true}

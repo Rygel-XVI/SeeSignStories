@@ -10,6 +10,8 @@ class VideoCard extends Component {
       opts: {
         playerVars: {
           autoplay: 1,
+          cc_load_policy: 1,
+          modestbranding: 1
         }
       }
     })
