@@ -17,6 +17,10 @@ class VideoCard extends Component {
     })
   }
 
+  playVideo() {
+    return <VideoPlayer id={this.props.id} />
+  }
+
   renderImage() {
     return <img src={this.getThumbnail()} onClick={this.handleClick}/>
   }

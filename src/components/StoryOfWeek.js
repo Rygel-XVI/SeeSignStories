@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import VideoCard from './VideoCard';
 
 class StoryOfWeek extends Component {
-  constructor(props) {
-    super(props)
-
-    this.onPlayVideo = this.onPlayVideo.bind(this)
-  }
 
   render() {
 
