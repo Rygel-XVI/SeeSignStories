@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
 import { findDOMNode } from 'react-dom'
-
-import YouTube from 'react-youtube'
 import screenfull from 'screenfull'
-// import ReactPlayer from 'react-player'
 import YouTubePlayer from 'react-player/lib/players/YouTube'
 
 
-class Test extends Component {
+class VideoPlayer extends Component {
   constructor(props) {
     super(props)
     this.state = ({
@@ -57,4 +54,4 @@ class Test extends Component {
 
   }
 
-  export default Test;
+  export default VideoPlayer;

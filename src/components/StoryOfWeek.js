@@ -8,12 +8,6 @@ class StoryOfWeek extends Component {
     this.onPlayVideo = this.onPlayVideo.bind(this)
   }
 
-  onPlayVideo(event) {
-    //change video rendering so it only pull the thumbnail
-    //on click it should load and autoplay in fullscreen mode
-    debugger;
-  }
-
   render() {
 
     return (

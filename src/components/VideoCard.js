@@ -1,20 +1,13 @@
 import React, { Component } from 'react'
-import YouTube from 'react-youtube';
-import Test from './Test'
+import VideoPlayer from './VideoPlayer'
 
 class VideoCard extends Component {
   constructor(props) {
     super(props)
     this.state = ({
       renderVideo: false,
-      opts: {
-        playerVars: {
-          autoplay: 1,
-          cc_load_policy: 1,
-          modestbranding: 1
-        }
-      }
     })
+
     this.handleClick = this.handleClick.bind(this)
   }
 
@@ -22,10 +15,6 @@ class VideoCard extends Component {
     this.setState ({
       renderVideo: !this.state.renderVideo
     })
-  }
-
-  playVideo() {
-    return <Test id={this.props.id} />
   }
 
   renderImage() {
