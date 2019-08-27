@@ -18,10 +18,10 @@ The language used in the high-quality literature that students’ have access to
 </p>
 
 <p>
-I wanted to provide an option for students to be read to fluently in their modality of communication. The students can read along with the video, they can watch the videos to improve their comprehension of the story and the whole family can be presented with a model to learn new sign vocabulary that they may not have se  </p>
+I wanted to provide an option for students to be read to fluently in their modality of communication. The students can read along with the video, they can watch the videos to improve their comprehension of the story and the whole family can be presented with a model to learn new sign vocabulary that they may not have seen before.
+</p>
 
-<p>en before.
-
+<p>
 I want the families in my class, and beyond, to have a resource for a read-aloud for their children.
 </p>
 
