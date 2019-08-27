@@ -8,7 +8,7 @@ import ARLevel from './containers/ARLevel'
 import GradeLevel from './containers/GradeLevel'
 import Genre from './containers/Genre'
 import Banner from './components/Banner'
-
+import NavBar from './containers/NavBar'
 
 
 
@@ -75,14 +75,19 @@ Move the following to Redux note to self...add redux...
           <Banner />
           <hr border="50px" color='black'/>
           <br />
+          <div className='router'>
           <Router>
-          <Switch id='routes'>
+          <NavBar />
+          <div className='routes'>
+          <Switch>
           <Route exact path="/" render={() => <Main videos={this.state.videos} />} />
           <Route path="/arlevel" render={() => <ARLevel videos={this.state.videos}  tags={this.getARLevels()} />} />
           <Route path="/gradelevel" render={() => <GradeLevel videos={this.state.videos}  tags={this.getGradeLevels()} />} />
           <Route path="/genre" render={() => <Genre videos={this.state.videos}   />} />
           </Switch>
+          </div>
           </ Router>
+          </div>
           </ div>
         )}
       }
