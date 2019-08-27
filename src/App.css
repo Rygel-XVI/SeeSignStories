@@ -161,13 +161,20 @@ button.black {
 }
 
 .about {
-  text-align: center;
+  border-width: 2px 2px 0px 2px;
+  border-style: solid;
+  border-color: #b1c1c7;
+  border-radius: 15px;
+  margin: 1%;
 }
 
 .about h1 {
+  text-align: center;
   font-size: 36px;
 }
 
 .about p {
+  text-align: left;
   font-size: 24px;
+  margin: 2%;
 }
