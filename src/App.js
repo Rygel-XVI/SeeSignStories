@@ -4,6 +4,7 @@ import './App.css';
 
 import routes from './routes'
 import Main from './containers/Main'
+import About from './components/About'
 import ARLevel from './containers/ARLevel'
 import GradeLevel from './containers/GradeLevel'
 import Genre from './containers/Genre'
@@ -81,6 +82,8 @@ Move the following to Redux note to self...add redux...
           <div className='routes'>
           <Switch>
           <Route exact path="/" render={() => <Main videos={this.state.videos} />} />
+          <Route path="/about" render={() => <About />} />
+
           <Route path="/arlevel" render={() => <ARLevel videos={this.state.videos}  tags={this.getARLevels()} />} />
           <Route path="/gradelevel" render={() => <GradeLevel videos={this.state.videos}  tags={this.getGradeLevels()} />} />
           <Route path="/genre" render={() => <Genre videos={this.state.videos}   />} />

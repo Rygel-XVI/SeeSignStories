@@ -28,6 +28,8 @@ html body {
   display: flex;
   align-self: center;
   max-height:100%;
+  width: 9%;
+  margin: 1%;
 }
 
 .main {
@@ -156,4 +158,16 @@ button.link-button.red {
 button.black {
   background: black;
   color: white;
+}
+
+.about {
+  text-align: center;
+}
+
+.about h1 {
+  font-size: 36px;
+}
+
+.about p {
+  font-size: 24px;
 }
