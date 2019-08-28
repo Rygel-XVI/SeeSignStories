@@ -30,6 +30,8 @@ html body {
   height: 140px;
   width: 140px;
   margin: 1%;
+  border: 2px solid;
+  border-color: black;
 }
 
 .main {
@@ -42,6 +44,12 @@ html body {
   display: flex;
   width: 100%;
   justify-content: center;
+}
+
+.sow-text {
+  font-size: 64px;
+  font-variant-caps: petite-caps;
+  font-weight: bolder;
 }
 
 .videos {
@@ -86,21 +94,6 @@ html body {
   justify-content: center;
 }
 
-.button {
-  font-family: "Courier New";
-  border: 8px solid;
-  border-radius: 56px;
-  border-color: black;
-  font-size: 28px;
-  font-weight: bolder;
-  color: black;
-  margin: 20px;
-  padding: 15px;
-  width: 200px;
-  height: 200px;
-  text-align: center;
-}
-
 .router {
   display: flex;
 }
@@ -120,22 +113,35 @@ html body {
 
 .nav-button {
   font-family: "Courier New";
-  border: 4px solid;
-  border-radius: 45px;
+  border: 5px solid;
+  border-radius: 50px;
   border-color: black;
-  font-size: 19px;
+  font-size: 22px;
   font-weight: bolder;
   color: black;
+  margin: 15px 0px;
   padding: 15px;
   width: 90%;
   min-width: 130px;
-  height: 75px;
-  margin: 20px 0px;
+  height: 100px;
+  width: 200px;
   text-align: center;
-  align-content: left;
-  align-items: left;
-  align-self: left;
-  display: block;
+}
+
+
+.link-button {
+  font-family: "Courier New";
+  border: 8px solid;
+  border-radius: 56px;
+  border-color: black;
+  font-size: 28px;
+  font-weight: bolder;
+  color: black;
+  margin: 20px;
+  padding: 15px;
+  width: 200px;
+  height: 200px;
+  text-align: center;
 }
 
 .video-filter-container {
@@ -148,15 +154,15 @@ button text {
   height: 100%;
 }
 
-button.link-button.orange {
+button.orange {
   background: #f08c00;
 }
 
-button.link-button.green {
+button.green {
   background: #15c206;
 }
 
-button.link-button.red {
+button.red {
   background: #e31c0e;
 }
 

@@ -24,7 +24,6 @@ class Main extends Component {
     return (
       <div className="main videos">
         {this.displaySOW()}
-        <ButtonNav videos={this.state.videos} />
       </div>
     )}
 }

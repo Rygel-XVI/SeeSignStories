@@ -7,7 +7,9 @@ class StoryOfWeek extends Component {
 
     return (
       <div>
-      <h1>Story of the Week</h1>
+      <div className="sow-text">
+      Story of the Week
+      </div>
       <div className="sow">
       <VideoCard key={this.props.sow.id} id={this.props.sow.id} tags={this.props.sow.snippet.tags}  title={this.props.sow.snippet.title} thumbnails={this.props.sow.snippet.thumbnails}/>
       </ div>
