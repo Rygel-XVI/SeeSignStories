@@ -106,7 +106,8 @@ html body {
 
 .routes {
   display: flex;
-  width: 90%;
+  width: 85%;
+  margin: 2.5%;
   align-content: center;
   justify-content: center;
 }
@@ -139,8 +140,10 @@ html body {
   color: black;
   margin: 20px;
   padding: 15px;
+  flex-shrink: 1;
   width: 200px;
-  height: 200px;
+  min-width: 100px;
+  height: 150px;
   text-align: center;
 }
 
@@ -178,6 +181,7 @@ button.black {
   border-radius: 15px;
   margin: 2%;
   padding: 2%;
+  flex-wrap:wrap;
 }
 
 .about h1 {
