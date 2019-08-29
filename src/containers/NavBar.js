@@ -8,9 +8,9 @@ class NavBar extends Component {
     return (
       <div className="nav-bar" >
       <LinkButton text="Home" klass="nav-button" path="" />
-      <LinkButton text="Genre" klass="nav-button red" path="genre" />
+      <LinkButton text="AR Level" klass="nav-button red" path="arlevel" />
       <LinkButton text="Grade" klass="nav-button orange" path="gradelevel"/>
-      <LinkButton text="AR Level" klass="nav-button green" path="arlevel"/>
+      <LinkButton text="Genre" klass="nav-button green" path="genre"/>
       <LinkButton text="PDFs" klass="nav-button purple" path="pdf" />
       <LinkButton text="About" klass="nav-button" path="about"/>
       </ div>
