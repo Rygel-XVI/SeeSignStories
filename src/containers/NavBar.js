@@ -11,7 +11,8 @@ class NavBar extends Component {
       <LinkButton text="Genre" klass="nav-button red" path="genre" />
       <LinkButton text="Grade" klass="nav-button orange" path="gradelevel"/>
       <LinkButton text="AR Level" klass="nav-button green" path="arlevel"/>
-      <LinkButton text="About the site" klass="nav-button" path="about"/>
+      <LinkButton text="PDFs" klass="nav-button purple" path="pdf" />
+      <LinkButton text="About" klass="nav-button" path="about"/>
       </ div>
     )
   }

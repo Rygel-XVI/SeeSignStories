@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router'
+import { Link } from 'react-router-dom'
 
 const LinkButton = ({klass, text, path, history}) => (
-    <button onClick={(event) => history.push(`/${path}`)} className={klass} type="button" >{text}</ button>
+  <button className={klass}>
+  <Link to={path}>{text}</Link>
+  </button>
 )
 
-export default withRouter(LinkButton)
+export default LinkButton
