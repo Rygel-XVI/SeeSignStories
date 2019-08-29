@@ -129,10 +129,14 @@ html body {
   text-align: center;
 }
 
-a {
+/* a {
   color: black;
   text-decoration: none;
-}
+} */
+
+/* .nav-button:hover {
+  content:attr('data-src');
+} */
 
 .link-button {
   font-family: "Courier New";

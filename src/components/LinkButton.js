@@ -1,10 +1,11 @@
+
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
 const LinkButton = ({klass, text, path, history}) => (
-  <button className={klass}>
-  <Link to={path}>{text}</Link>
-  </button>
+  <Link to={path}>
+  <button className={klass}>{text}</button>
+  </Link>
 )
 
 export default LinkButton
