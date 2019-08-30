@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './App.css';
 
-import routes from './routes'
 import Main from './containers/Main'
 import About from './components/About'
 import ARLevel from './containers/ARLevel'
@@ -87,17 +86,17 @@ Move the following to Redux note to self...add redux...
           <Route path="/pdf" render={() => <SignedPDFs />} />
           <Route path="/arlevel" render={() => <ARLevel
             videos={this.state.videos}
-            title="Accelerated Reader"
+            title="Accelerated Reader Level"
             tags={this.getARLevels()}
             />} />
           <Route path="/gradelevel" render={() => <GradeLevel
             videos={this.state.videos}
-            title="Grade"
+            title="Grade Level"
             tags={this.getGradeLevels()}
             />} />
-          <Route path="/genre" render={() => <Genre 
+          <Route path="/genre" render={() => <Genre
             videos={this.state.videos}
-            text="Genre"
+            text="genre"
             />} />
           </Switch>
           </div>

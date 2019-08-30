@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import VideoCard from '../components/VideoCard';
 import StoryOfWeek from '../components/StoryOfWeek'
 
 

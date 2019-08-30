@@ -57,6 +57,6 @@ class GradeLevel extends Component {
         </div>
       )}
 
-}
+    }
 
-export default GradeLevel;
+    export default GradeLevel;
