@@ -9,6 +9,28 @@ body {
   width: 100%;
 }
 
+@media only screen and (max-width: 740px) {
+  .docked {
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 95%;
+    margin: 2.5%;
+    background: #07102070;
+  }
+
+  .link-button {
+    font-size: 10px;
+    font-weight: bolder;
+    /* margin: 2px; */
+    padding: 5px;
+    border: 3px solid;
+    flex-shrink: 1;
+    min-width: 50px;
+    height: 50px;
+    width: 75px;
+  }
+}
 
 
 @media only screen and (max-width: 1050px) {
@@ -56,15 +78,20 @@ body {
     width: 100px;
   }
 
-  .link-button {
-    font-size: 15px;
-    font-weight: bolder;
-    margin: 10px;
-    padding: 15px;
-    flex-shrink: 1;
-    min-width: 100px;
-    height: 75px;
-    width: 100px;
+  @media only screen and (min-width: 740px) {
+
+    .link-button {
+      font-size: 15px;
+      font-weight: bolder;
+      margin: 10px;
+      padding: 15px;
+      border: 8px solid;
+      flex-shrink: 1;
+      min-width: 100px;
+      height: 75px;
+      width: 100px;
+    }
+
   }
 
   .videos {
@@ -136,16 +163,13 @@ body {
     font-weight: bolder;
     margin: 20px;
     padding: 15px;
+    border: 8px solid;
     flex-shrink: 1;
     width: 200px;
     min-width: 100px;
     height: 150px;
   }
 
-  .routes {
-    /* width: 85%;
-    margin: 2.5%; */
-  }
 }
 
 .main {
@@ -176,13 +200,6 @@ body {
   margin: 2%;
   padding: 0.75%;
 }
-
-/* .video-card img {
-  width: 94%;
-  margin: 1%;
-  padding: 2%;
-  background-color: #445261;
-} */
 
 .video .title {
   text-align: center;
@@ -231,11 +248,9 @@ body {
 
 .link-button {
   font-family: "Courier New";
-  border: 8px solid;
   border-radius: 56px;
   border-color: black;
   color: black;
-  /* flex-shrink: 1; */
   text-align: center;
 }
 
@@ -270,6 +285,10 @@ button.black {
 
 button.purple {
   background: #9138c9;
+}
+
+button.white {
+  background: white;
 }
 
 .about {

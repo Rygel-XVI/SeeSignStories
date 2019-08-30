@@ -10,6 +10,7 @@ import Genre from './containers/Genre'
 import SignedPDFs from './components/SignedPDFs'
 import Banner from './components/Banner'
 import NavBar from './containers/NavBar'
+import DockedNav from './containers/DockedNav'
 
 
 
@@ -36,6 +37,10 @@ getGradeLevels() {
   let tags = this.state.videos.map(v => v.snippet.tags.filter(t => t.match(/^grade/i))).flat()
   tags = tags.map(s => s.slice(6)).sort()
   return [...new Set(tags)]
+}
+
+renderNav() {
+  return window.innerWidth > 740 ? <NavBar /> : <DockedNav />
 }
 
 
@@ -78,7 +83,7 @@ Move the following to Redux note to self...add redux...
           <br />
           <div className='router'>
           <Router>
-          <NavBar />
+          {this.renderNav()}
           <div className='routes'>
           <Switch>
           <Route exact path="/" render={() => <Main videos={this.state.videos} />} />
