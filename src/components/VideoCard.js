@@ -23,13 +23,13 @@ class VideoCard extends Component {
 
   render() {
     return (
-    <div>
+    <div className="video">
 
-    <div className="video-title">
+    <div className="title">
     <h1>{this.props.title}</h1>
     </div>
 
-    <div className="video-card">
+    <div className="card">
     {this.playVideo()}
     </div>
 

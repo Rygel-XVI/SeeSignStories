@@ -1,4 +1,4 @@
-html body {
+body {
   background-color: #7091b3;
   margin: 2%;
   display: flex;
@@ -9,29 +9,143 @@ html body {
   width: 100%;
 }
 
-.banner {
-  display: flex;
-  height: 150px;
-  width: 100%;
+
+
+@media only screen and (max-width: 1050px) {
+  .banner {
+    display: flex;
+    height: 100px;
+    width: 100%;
+  }
+
+  .banner-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 98%;
+    margin: 1%;
+  }
+
+  .banner-text h1 {
+    font-size: 30px;
+  }
+
+  .logo-img {
+    display: flex;
+    align-self: center;
+    max-width: 20%;
+    max-height: 100px;
+    border: 2px solid;
+    border-color: black;
+  }
+
+  .nav-bar {
+    max-width: 100px;
+    justify-content: left;
+  }
+
+  .nav-button {
+    margin: 7px 0px;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: bolder;
+    width: 90%;
+    min-width: 100px;
+    height: 75px;
+    width: 100px;
+  }
+
+  .link-button {
+    font-size: 15px;
+    font-weight: bolder;
+    margin: 10px;
+    padding: 15px;
+    flex-shrink: 1;
+    min-width: 100px;
+    height: 75px;
+    width: 100px;
+  }
+
+  .videos {
+    width: 98%;
+    margin: 1%;
+  }
+
+  .video {
+    width: 48%;
+    margin: 0% 1%;
+  }
+
+  .video .title h1 {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .react-player {
+    width: 100%;
+  }
+
 }
 
-.banner-text {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-  font-size: 2.5em;
-}
+@media only screen and (min-width: 1050px) {
+  .banner {
+    display: flex;
+    height: 150px;
+    width: 100%;
+  }
 
-.logo-img {
-  display: flex;
-  align-self: center;
-  height: 140px;
-  width: 140px;
-  margin: 1%;
-  border: 2px solid;
-  border-color: black;
+  .banner-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    font-size: 40px;
+  }
+
+  .logo-img {
+    display: flex;
+    align-self: center;
+    max-height: 140px;
+    max-width: 140px;
+    margin: 1%;
+    border: 2px solid;
+    border-color: black;
+  }
+
+  .nav-bar {
+    min-width: 130px;
+    max-width: 200px;
+    justify-content: left;
+  }
+
+  .nav-button {
+    margin: 15px 0px;
+    padding: 15px;
+    font-size: 22px;
+    font-weight: bolder;
+    width: 90%;
+    min-width: 130px;
+    height: 100px;
+    width: 200px;
+  }
+
+  .link-button {
+    font-size: 28px;
+    font-weight: bolder;
+    margin: 20px;
+    padding: 15px;
+    flex-shrink: 1;
+    width: 200px;
+    min-width: 100px;
+    height: 150px;
+  }
+
+  .routes {
+    /* width: 85%;
+    margin: 2.5%; */
+  }
 }
 
 .main {
@@ -58,19 +172,19 @@ html body {
   flex-wrap: wrap;
 }
 
-.video-card {
+.video .card {
   margin: 2%;
   padding: 0.75%;
 }
 
-.video-card img {
+/* .video-card img {
   width: 94%;
   margin: 1%;
   padding: 2%;
   background-color: #445261;
-}
+} */
 
-.video-title {
+.video .title {
   text-align: center;
 }
 
@@ -98,18 +212,12 @@ html body {
   display: flex;
 }
 
-.nav-bar {
-  min-width: 130px;
-  max-width: 200px;
-  justify-content: left;
-}
-
 .routes {
   display: flex;
-  width: 85%;
-  margin: 2.5%;
   align-content: center;
   justify-content: center;
+  width: 85%;
+  margin: 2.5%;
 }
 
 .nav-button {
@@ -117,46 +225,24 @@ html body {
   border: 5px solid;
   border-radius: 50px;
   border-color: black;
-  font-size: 22px;
-  font-weight: bolder;
   color: black;
-  margin: 15px 0px;
-  padding: 15px;
-  width: 90%;
-  min-width: 130px;
-  height: 100px;
-  width: 200px;
   text-align: center;
 }
-
-/* a {
-  color: black;
-  text-decoration: none;
-} */
-
-/* .nav-button:hover {
-  content:attr('data-src');
-} */
 
 .link-button {
   font-family: "Courier New";
   border: 8px solid;
   border-radius: 56px;
   border-color: black;
-  font-size: 28px;
-  font-weight: bolder;
   color: black;
-  margin: 20px;
-  padding: 15px;
-  flex-shrink: 1;
-  width: 200px;
-  min-width: 100px;
-  height: 150px;
+  /* flex-shrink: 1; */
   text-align: center;
 }
 
 .video-filter-container {
   text-align: center;
+  align-content: center;
+  justify-content: center;
 }
 
 button text {
