@@ -14,7 +14,7 @@ class VideoPlayer extends Component {
           playerVars: {
             cc_load_policy: 1,
             modestbranding: 1,
-            fs: 0
+            fs: 1
           }
         }
       }
