@@ -85,9 +85,20 @@ Move the following to Redux note to self...add redux...
           <Route exact path="/" render={() => <Main videos={this.state.videos} />} />
           <Route path="/about" render={() => <About />} />
           <Route path="/pdf" render={() => <SignedPDFs />} />
-          <Route path="/arlevel" render={() => <ARLevel videos={this.state.videos}  tags={this.getARLevels()} />} />
-          <Route path="/gradelevel" render={() => <GradeLevel videos={this.state.videos}  tags={this.getGradeLevels()} />} />
-          <Route path="/genre" render={() => <Genre videos={this.state.videos}   />} />
+          <Route path="/arlevel" render={() => <ARLevel
+            videos={this.state.videos}
+            title="Accelerated Reader"
+            tags={this.getARLevels()}
+            />} />
+          <Route path="/gradelevel" render={() => <GradeLevel
+            videos={this.state.videos}
+            title="Grade"
+            tags={this.getGradeLevels()}
+            />} />
+          <Route path="/genre" render={() => <Genre 
+            videos={this.state.videos}
+            text="Genre"
+            />} />
           </Switch>
           </div>
           </ Router>

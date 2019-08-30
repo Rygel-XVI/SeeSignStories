@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import ButtonNav from './ButtonNav'
-import NavBar from './NavBar'
 import VideoCard from '../components/VideoCard';
 import StoryOfWeek from '../components/StoryOfWeek'
 
