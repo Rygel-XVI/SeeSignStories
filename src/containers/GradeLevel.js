@@ -35,7 +35,7 @@ class GradeLevel extends Component {
 
     renderButtons() {
       return this.props.tags.map(level => {
-        return <Button klass='link-button black' text={level} handleClick={this.handleClick} />
+        return <Button klass='link-button black' text={level} handleClick={this.handleClick} key="level" />
       })
     }
 
