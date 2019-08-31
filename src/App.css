@@ -1,8 +1,6 @@
 body {
   background-color: #7091b3;
-  margin: 2%;
   display: flex;
-  width: 96%;
 }
 
 #root {
@@ -15,14 +13,14 @@ body {
     position: fixed;
     bottom: 0;
     width: 95%;
-    margin: 2.5%;
+    padding: 2.5%;
     background: #07102070;
   }
 
   .link-button {
     font-size: 10px;
     font-weight: bolder;
-    /* margin: 2px; */
+    margin: 2px;
     padding: 5px;
     border: 3px solid;
     flex-shrink: 1;
@@ -37,7 +35,8 @@ body {
   .banner {
     display: flex;
     height: 100px;
-    width: 100%;
+    width: 96%;
+    /* margin: 2%, 0%, 0%, 2%; */
   }
 
   .banner-text {
@@ -86,12 +85,17 @@ body {
       margin: 10px;
       padding: 15px;
       border: 8px solid;
+      border-radius: 56px;
       flex-shrink: 1;
       min-width: 100px;
       height: 75px;
       width: 100px;
     }
 
+  }
+
+  .nav-button {
+    border-radius: 50px;
   }
 
   .videos {
@@ -119,7 +123,7 @@ body {
   .banner {
     display: flex;
     height: 150px;
-    width: 100%;
+    width: 96%;
   }
 
   .banner-text {
@@ -152,6 +156,7 @@ body {
     padding: 15px;
     font-size: 22px;
     font-weight: bolder;
+    border-radius: 50px;
     width: 90%;
     min-width: 130px;
     height: 100px;
@@ -170,6 +175,14 @@ body {
     height: 150px;
   }
 
+}
+
+.banner {
+  margin: 2% 0% 0% 2%;
+}
+
+.nav-bar {
+  margin: 2% 0% 0% 2%;
 }
 
 .main {
@@ -240,7 +253,6 @@ body {
 .nav-button {
   font-family: "Courier New";
   border: 5px solid;
-  border-radius: 50px;
   border-color: black;
   color: black;
   text-align: center;
@@ -248,7 +260,6 @@ body {
 
 .link-button {
   font-family: "Courier New";
-  border-radius: 56px;
   border-color: black;
   color: black;
   text-align: center;

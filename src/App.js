@@ -18,6 +18,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      etag: '',
       videos: [],
       opts: {
         height: '100%',
