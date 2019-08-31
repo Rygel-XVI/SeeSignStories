@@ -7,6 +7,12 @@ body {
   width: 100%;
 }
 
+@media only screen and (max-height: 500px) {
+  body {
+    height: 540px;
+  }
+}
+
 @media only screen and (max-width: 740px) {
   .docked {
     overflow: hidden;
@@ -28,7 +34,48 @@ body {
     height: 50px;
     width: 75px;
   }
+
+  .sow-text {
+    font-size: 38px;
+  }
+
+  .video {
+    width: 48%;
+    margin: 0% 1%;
+    height: 80%;
+  }
+
+  .video .title h1 {
+    font-size: 15px;
+    height: 15%;
+  }
 }
+
+@media only screen and (min-width: 740px) {
+  .sow-text {
+    font-size: 64px;
+  }
+}
+
+@media only screen and (max-width: 740px) {
+  .video .card {
+    height: 80%;
+  }
+
+  .video .title h1 {
+    text-align: center;
+    font-size: 15px;
+    height: 15%;
+  }
+}
+
+@media only screen and (min-width: 740px) {
+  .video .title h1 {
+    text-align: center;
+    font-size: 18px;
+  }
+}
+
 
 
 @media only screen and (max-width: 1050px) {
@@ -92,6 +139,10 @@ body {
       width: 100px;
     }
 
+    .react-player {
+      width: 100%;
+    }
+
   }
 
   .nav-button {
@@ -110,12 +161,9 @@ body {
 
   .video .title h1 {
     text-align: center;
-    font-size: 18px;
+    /* font-size: 18px; */
   }
 
-  .react-player {
-    width: 100%;
-  }
 
 }
 
@@ -169,6 +217,7 @@ body {
     margin: 20px;
     padding: 15px;
     border: 8px solid;
+    border-radius: 56px;
     flex-shrink: 1;
     width: 200px;
     min-width: 100px;
@@ -198,7 +247,6 @@ body {
 }
 
 .sow-text {
-  font-size: 64px;
   font-variant-caps: petite-caps;
   font-weight: bolder;
 }
