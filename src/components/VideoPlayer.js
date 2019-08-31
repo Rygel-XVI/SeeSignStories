@@ -9,6 +9,8 @@ class VideoPlayer extends Component {
   constructor(props) {
     super(props)
     this.state = ({
+      width: '100%',
+      height: '100%',
       opts: {
         youtube: {
           playerVars: {
@@ -32,22 +34,33 @@ class VideoPlayer extends Component {
     screenfull.exit(findDOMNode(this.refs.player))
   }
 
+  componentDidMount() {
+    if (window.innerWidth < 740) {
+      this.setState({
+        width: '256px',
+        height: '144px'
+      })
+    }
+  }
+
   render() {
     return (
       <div className="video-player">
 
-        <ReactPlayer
-        ref='player'
-        url={`https://www.youtube.com/embed/${this.props.id}`}
-          key={this.props.id}
-          className='react-player'
-          onPlay={this.goFullScreen}
-          onPause={this.stopFullScreen}
-          playing={true}
-          config={this.state.opts}
-          light={true}
-          controls
-          playsinline
+      <ReactPlayer
+      ref='player'
+      url={`https://www.youtube.com/embed/${this.props.id}`}
+        key={this.props.id}
+        className='react-player'
+        width={this.state.width}
+        height={this.state.height}
+        onPlay={this.goFullScreen}
+        onPause={this.stopFullScreen}
+        playing={true}
+        config={this.state.opts}
+        light={true}
+        controls
+        playsinline
         />
 
         </div>
