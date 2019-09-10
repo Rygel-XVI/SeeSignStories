@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@babel/core": "^7.5.5",
+    "proxy": "^0.2.4",
     "react": "^16.8.6",
     "react-awesome-button": "^6.1.2",
     "react-dom": "^16.8.6",
@@ -35,5 +36,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:3000"
 }

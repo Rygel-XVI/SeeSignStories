@@ -18,7 +18,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      etag: '',
+      channels: [],
       videos: [],
       opts: {
         height: '100%',
@@ -27,34 +27,60 @@ class App extends Component {
     }
   }
 
-// setting tag filters for routes
-getARLevels() {
-  let tags = this.state.videos.map(v => v.snippet.tags.filter(t => t.match(/^ar/i))).flat()
-  tags = tags.map(s => s.slice(3)).sort()
-  return [...new Set(tags)]
-}
+  // setting tag filters for routes
+  getARLevels() {
+    let tags = this.state.videos.map(v => v.snippet.tags.filter(t => t.match(/^ar/i))).flat()
+    tags = tags.map(s => s.slice(3)).sort()
+    return [...new Set(tags)]
+  }
 
-getGradeLevels() {
-  let tags = this.state.videos.map(v => v.snippet.tags.filter(t => t.match(/^grade/i))).flat()
-  tags = tags.map(s => s.slice(6)).sort()
-  return [...new Set(tags)]
-}
+  getGradeLevels() {
+    let tags = this.state.videos.map(v => v.snippet.tags.filter(t => t.match(/^grade/i))).flat()
+    tags = tags.map(s => s.slice(6)).sort()
+    return [...new Set(tags)]
+  }
 
-renderNav() {
-  return window.innerWidth > 740 ? <NavBar /> : <DockedNav />
-}
+  renderNav() {
+    return window.innerWidth > 740 ? <NavBar /> : <DockedNav />
+  }
 
 
-/*
-Move the following to Redux note to self...add redux...
-*/
-/// fetch requests
+  /*
+  Move the following to Redux note to self...add redux...
+  */
+  /// fetch requests
+
+  checkChannelEtag = async () => {
+     const resp = await fetch(`http://localhost:3000/channel`, {
+      crossDomain:true,
+      headers: {
+      "access-control-allow-origin" : "*",
+      "Content-type": "application/json; charset=UTF-8"
+    }}
+  )
+  const body = await resp.json()
+
+  if (resp.status !== 200) {
+    throw Error(body.message)
+  }
+  console.log(body)
+  // body = {channel: Array [channels]}
+  this.setState({
+    channels: body.channels
+  })
+
+  //now i need to fetch to youtube to check the eTags I pulled from my db
+  return
+  }
 
   fetchVideoIds() {
     let vId = []
     fetch(`https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_KEY}&channelId=${process.env.REACT_APP_CHANNEL_ID}&part=snippet,id&type=video&maxResults=50`)
       .then(resp => resp.json())
       .then((json) => {
+        this.setState ({
+          etag: json.etag
+        })
         vId = json.items.map(v => v.id.videoId).join(',')
         this.fetchVideoTags(vId)
       })
@@ -71,7 +97,8 @@ Move the following to Redux note to self...add redux...
       }
 
       componentDidMount() {
-        this.fetchVideoIds()
+        this.checkChannelEtag()
+        // this.fetchVideoIds()
       }
 
       render() {
@@ -95,21 +122,21 @@ Move the following to Redux note to self...add redux...
             title="Accelerated Reader Level"
             tags={this.getARLevels()}
             />} />
-          <Route path="/gradelevel" render={() => <GradeLevel
-            videos={this.state.videos}
-            title="Grade Level"
-            tags={this.getGradeLevels()}
-            />} />
-          <Route path="/genre" render={() => <Genre
-            videos={this.state.videos}
-            text="genre"
-            />} />
-          </Switch>
-          </div>
-          </ Router>
-          </div>
-          </ div>
-        )}
-      }
+            <Route path="/gradelevel" render={() => <GradeLevel
+              videos={this.state.videos}
+              title="Grade Level"
+              tags={this.getGradeLevels()}
+              />} />
+              <Route path="/genre" render={() => <Genre
+                videos={this.state.videos}
+                text="genre"
+                />} />
+                </Switch>
+                </div>
+                </ Router>
+                </div>
+                </ div>
+              )}
+            }
 
-      export default App;
+            export default App;
