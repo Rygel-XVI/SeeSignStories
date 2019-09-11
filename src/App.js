@@ -50,28 +50,51 @@ class App extends Component {
   */
   /// fetch requests
 
-  checkChannelEtag = async () => {
-     const resp = await fetch(`http://localhost:3000/channel`, {
+  getChannels = async () => {
+    const resp = await fetch(`http://localhost:3000/channel`, {
       crossDomain:true,
       headers: {
-      "access-control-allow-origin" : "*",
-      "Content-type": "application/json; charset=UTF-8"
-    }}
-  )
-  const body = await resp.json()
+        "access-control-allow-origin" : "*",
+        "Content-type": "application/json; charset=UTF-8"
+      }}
+    )
+    const body = await resp.json()
 
-  if (resp.status !== 200) {
-    throw Error(body.message)
-  }
-  console.log(body)
-  // body = {channel: Array [channels]}
-  this.setState({
-    channels: body.channels
-  })
+    if (resp.status !== 200) {
+      throw Error(body.message)
+    }
+    console.log(body)
 
-  //now i need to fetch to youtube to check the eTags I pulled from my db
-  return
+    this.setState({
+      channels: body.channels
+    })
+
+    return
   }
+
+  getVideos = async () => {
+    const resp = await fetch(`http://localhost:3000/video`, {
+      crossDomain:true,
+      headers: {
+        "access-control-allow-origin" : "*",
+        "Content-type": "application/json; charset=UTF-8"
+      }}
+    )
+    const body = await resp.json()
+
+    if (resp.status !== 200) {
+      throw Error(body.message)
+    }
+    console.log(body)
+
+    this.setState({
+      videos: body.videos
+    })
+
+    return
+  }
+
+
 
   fetchVideoIds() {
     let vId = []
@@ -97,7 +120,8 @@ class App extends Component {
       }
 
       componentDidMount() {
-        this.checkChannelEtag()
+        this.getChannels()
+        this.getVideos()
         // this.fetchVideoIds()
       }
 
