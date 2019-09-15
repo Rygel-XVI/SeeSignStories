@@ -11,7 +11,7 @@ class StoryOfWeek extends Component {
       Story of the Week
       </div>
       <div className="sow">
-      <VideoCard key={this.props.sow.id} id={this.props.sow.id} tags={this.props.sow.snippet.tags}  title={this.props.sow.snippet.title} thumbnails={this.props.sow.snippet.thumbnails}/>
+      <VideoCard key={this.props.sow.id} id={this.props.sow.videoId} tags={this.props.sow.tags}  title={this.props.sow.title} />
       </ div>
       </ div>
     )

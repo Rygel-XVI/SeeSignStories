@@ -14,8 +14,10 @@ class GradeLevel extends Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-  tagMatches(tag, arLevel) {
-    if (tag.match(/^grade/i) && this.inRange(tag, arLevel)) {
+
+///obvs abstract this out someday
+  inRange(low, hi, target) {
+    if (target >= low && target <= hi) {
       return true
     } else {
       return false
@@ -24,12 +26,14 @@ class GradeLevel extends Component {
 
   handleClick(event) {
     let filteredVideos = []
+    let target = Number(event.target.textContent)
 
     this.props.videos.forEach((video) => {
-      if (video.snippet.tags.filter((tag) => tag.match(/^grade/i))) {
+      if (video.tags.grade.length === 2 && this.inRange(video.tags.grade[0], video.tags.grade[1], target)) {
+        filteredVideos.push(video)
+      } else if (video.tags.grade.length === 1 && video.tags.grade[0] === target) {
         filteredVideos.push(video)
       }})
-
       this.setState({ filteredVideos: filteredVideos })
     }
 
@@ -40,7 +44,7 @@ class GradeLevel extends Component {
     }
 
     renderVideos() {
-      return this.state.filteredVideos.map(v => <VideoCard key={v.id} id={v.id} tags={v.snippet.tags}  title={v.snippet.title} thumbnails={v.snippet.thumbnails}/>)
+      return this.state.filteredVideos.map(v => <VideoCard key={v.id} id={v.videoId} tags={v.tags} title={v.title} />)
     }
 
     render() {

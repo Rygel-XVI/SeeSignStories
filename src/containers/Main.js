@@ -12,8 +12,8 @@ class Main extends Component {
 
 
   displaySOW() {
-    let sow = this.props.videos.find(v => v.snippet.tags.includes("Story of the Week"))
-    return sow !== undefined ? <StoryOfWeek sow={sow} /> : "No Story of the Week"
+    let sow = this.props.videos.find(v => v.tags.sow)
+    return !!sow ? <StoryOfWeek sow={sow} /> : "No Story of the Week"
   }
 
   render() {

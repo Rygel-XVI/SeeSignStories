@@ -29,14 +29,12 @@ class App extends Component {
 
   // setting tag filters for routes
   getARLevels() {
-    let tags = this.state.videos.map(v => v.snippet.tags.filter(t => t.match(/^ar/i))).flat()
-    tags = tags.map(s => s.slice(3)).sort()
+    let tags = this.state.videos.map(v => v.tags.ar).flat().sort()
     return [...new Set(tags)]
   }
 
   getGradeLevels() {
-    let tags = this.state.videos.map(v => v.snippet.tags.filter(t => t.match(/^grade/i))).flat()
-    tags = tags.map(s => s.slice(6)).sort()
+    let tags = this.state.videos.map(v => v.tags.grade).flat().sort()
     return [...new Set(tags)]
   }
 
@@ -61,9 +59,9 @@ class App extends Component {
     const body = await resp.json()
 
     if (resp.status !== 200) {
-      throw Error(body.message)
+      throw console.error(body.message)
     }
-    console.log(body)
+    // console.log(body)
 
     this.setState({
       channels: body.channels
@@ -83,9 +81,9 @@ class App extends Component {
     const body = await resp.json()
 
     if (resp.status !== 200) {
-      throw Error(body.message)
+      throw console.error(body.message)
     }
-    console.log(body)
+    // console.log(body)
 
     this.setState({
       videos: body.videos

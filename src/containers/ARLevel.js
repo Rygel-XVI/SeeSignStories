@@ -15,32 +15,22 @@ class ARLevel extends Component {
 
 
 /*
-factor functions out into another file
+factor functions out into another file or combine with other filtered files since the code is the same
 */
-  tagMatches(tag, arLevel) {
-    if (tag.match(/^ar/i) && this.inRange(tag, arLevel)) {
+  inRange(low, hi, target) {
+    if (target >= low && target <= hi) {
       return true
     } else {
       return false
     }
   }
 
-  inRange(tag, arLevel) {
-    let arRange = tag.split(/[a-zA-Z]+|\s+|-/).slice(2)
-    let arLow = arRange[0]
-    let arHi = arRange[1]
-
-    return (arLow >= arLevel[0] && arHi <= arLevel[1]) ? true : false
-  }
-
-///////
-
   handleClick(event) {
     let filteredVideos = []
-    let arLevel = event.target.textContent.split(/[a-zA-Z]+|\s+|-/)
+    let target = Number(event.target.textContent)
 
     this.props.videos.forEach((video) => {
-      if (video.snippet.tags.filter((tag) => this.tagMatches(tag, arLevel)).length > 0) {
+      if (video.tags.ar.length > 0 && this.inRange(video.tags.ar[0], video.tags.ar[1], target)) {
         filteredVideos.push(video)
       }})
 
@@ -54,7 +44,7 @@ factor functions out into another file
     }
 
     renderVideos() {
-      return this.state.filteredVideos.map(v => <VideoCard key={v.id} id={v.id} tags={v.snippet.tags}  title={v.snippet.title} thumbnails={v.snippet.thumbnails} />)
+      return this.state.filteredVideos.map(v => <VideoCard key={v.id} id={v.videoId} tags={v.tags} title={v.title} />)
     }
 
     render() {
