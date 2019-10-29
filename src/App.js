@@ -27,89 +27,103 @@ class App extends Component {
     }
   }
 
-// setting tag filters for routes
-getARLevels() {
-  let tags = this.state.videos.map(v => v.snippet.tags.filter(t => t.match(/^ar/i))).flat()
-  tags = tags.map(s => s.slice(3)).sort()
-  return [...new Set(tags)]
-}
+  // setting tag filters for routes
+  getARLevels() {
+    let tags = this.state.videos.map(v => v.snippet.tags.filter(t => t.match(/^ar/i))).flat()
+    tags = tags.map(s => s.slice(3)).sort()
+    return [...new Set(tags)]
+  }
 
-getGradeLevels() {
-  let tags = this.state.videos.map(v => v.snippet.tags.filter(t => t.match(/^grade/i))).flat()
-  tags = tags.map(s => s.slice(6)).sort()
-  return [...new Set(tags)]
-}
+  getGradeLevels() {
+    let tags = this.state.videos.map(v => v.snippet.tags.filter(t => t.match(/^grade/i))).flat()
+    tags = tags.map(s => s.slice(6)).sort()
+    return [...new Set(tags)]
+  }
 
-renderNav() {
-  return window.innerWidth > 740 ? <NavBar /> : <DockedNav />
-}
+  renderNav() {
+    return window.innerWidth > 740 ? <NavBar /> : <DockedNav />
+  }
 
 
-/*
-Move the following to Redux note to self...add redux...
-*/
-/// fetch requests
+  /*
+  Move the following to Redux note to self...add redux...
+  */
+  /// fetch requests
 
-  fetchVideoIds() {
-    let vId = []
-    fetch(`https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_KEY}&channelId=${process.env.REACT_APP_CHANNEL_ID}&part=snippet,id&type=video&maxResults=50`)
-      .then(resp => resp.json())
-      .then((json) => {
-        vId = json.items.map(v => v.id.videoId).join(',')
-        this.fetchVideoTags(vId)
+  // fetchVideoIds() {
+  //   let vId = []
+  //   fetch(`https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_TEST_API}&channelId=${process.env.REACT_APP_CHANNEL_ID}&part=snippet,id&type=video&maxResults=50`)
+  //     .then(resp => resp.json())
+  //     .then((json) => {
+  //       vId = json.items.map(v => v.id.videoId).join(',')
+  //       this.fetchVideoTags(vId)
+  //
+  //     })
+  //   }
+
+  // fetchVideoTags(videoIdString) {
+  //   fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoIdString}&key=${process.env.REACT_APP_TEST_API}`)
+  //     .then(resp => resp.json())
+  //     .then((json) => {
+  //       // debugger;
+  //       this.setState({
+  //         videos: json.items
+  //       })
+  //     })
+  //   }
+
+  fetchVideos() {
+    // fetch('https://seesignstories-rails-api.herokuapp.com/api/channel/index')
+    fetch('http://localhost:3000/api/video/index')
+
+    .then((resp) => resp.json())
+    .then((json) => {
+      this.setState({
+        videos: json
       })
-    }
+    })
+  }
 
-    fetchVideoTags(videoIdString) {
-      fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoIdString}&key=${process.env.REACT_APP_KEY}`)
-        .then(resp => resp.json())
-        .then((json) => {
-          this.setState({
-            videos: json.items
-          })
-        })
-      }
+  componentDidMount() {
+    this.fetchVideos()
+  }
 
-      componentDidMount() {
-        this.fetchVideoIds()
-      }
+  render() {
 
-      render() {
+    return (
+      <div className="App">
 
-        return (
-          <div className="App">
-
-          <Banner />
-          <hr border="50px" color='black'/>
-          <br />
-          <div className='router'>
-          <Router>
-          {this.renderNav()}
-          <div className='routes'>
-          <Switch>
-          <Route exact path="/" render={() => <Main videos={this.state.videos} />} />
-          <Route path="/about" render={() => <About />} />
-          <Route path="/pdf" render={() => <SignedPDFs />} />
-          <Route path="/arlevel" render={() => <ARLevel
-            videos={this.state.videos}
-            title="Accelerated Reader Level"
-            tags={this.getARLevels()}
-            />} />
-          <Route path="/gradelevel" render={() => <GradeLevel
-            videos={this.state.videos}
-            title="Grade Level"
-            tags={this.getGradeLevels()}
-            />} />
+      <Banner />
+      <hr border="50px" color='black'/>
+      <br />
+      <div className='router'>
+      <Router>
+      {this.renderNav()}
+      <div className='routes'>
+      <Switch>
+      <Route exact path="/" render={() => <Main videos={this.state.videos} />} />
+      <Route path="/about" render={() => <About />} />
+      <Route path="/pdf" render={() => <SignedPDFs />} />
+      <Route path="/arlevel" render={() => <ARLevel
+        videos={this.state.videos}
+        title="Accelerated Reader Level"
+        tags={this.getARLevels()}
+        />} />
+        <Route path="/gradelevel" render={() => <GradeLevel
+          videos={this.state.videos}
+          title="Grade Level"
+          tags={this.getGradeLevels()}
+          />} />
           <Route path="/genre" render={() => <Genre
             videos={this.state.videos}
             text="genre"
             />} />
-          </Switch>
-          </div>
-          </ Router>
-          </div>
-          </ div>
-        )}
-      }
+            </Switch>
+            </div>
+            </ Router>
+            </div>
+            </ div>
+          )}
+        }
 
-      export default App;
+        export default App;
