@@ -29,16 +29,17 @@ class App extends Component {
 
   // setting tag filters for routes
   getARLevels() {
-    let tags = this.state.videos.map(v => v.snippet.tags.filter(t => t.match(/^ar/i))).flat()
-    tags = tags.map(s => s.slice(3)).sort()
-    return [...new Set(tags)]
+    let arLevels = this.state.videos.map(video => `${video.ar_lvl_low}-${video.ar_lvl_high}`)
+    return [...new Set(arLevels)].sort()
   }
 
-  getGradeLevels() {
-    let tags = this.state.videos.map(v => v.snippet.tags.filter(t => t.match(/^grade/i))).flat()
-    tags = tags.map(s => s.slice(6)).sort()
-    return [...new Set(tags)]
-  }
+  //
+  // getGradeLevels() {
+  //   debugger;
+  //   // let tags = this.state.videos.map(v => v.snippet.tags.filter(t => t.match(/^grade/i))).flat()
+  //   // tags = tags.map(s => s.slice(6)).sort()
+  //   // return [...new Set(tags)]
+  // }
 
   renderNav() {
     return window.innerWidth > 740 ? <NavBar /> : <DockedNav />
@@ -72,9 +73,11 @@ class App extends Component {
   //     })
   //   }
 
+
+// on load
   fetchVideos() {
     // fetch('https://seesignstories-rails-api.herokuapp.com/api/channel/index')
-    fetch('http://localhost:3000/api/video/index')
+    fetch('http://localhost:3000/api/video')
 
     .then((resp) => resp.json())
     .then((json) => {
@@ -107,12 +110,11 @@ class App extends Component {
       <Route path="/arlevel" render={() => <ARLevel
         videos={this.state.videos}
         title="Accelerated Reader Level"
-        tags={this.getARLevels()}
+        arLevels={this.getARLevels()}
         />} />
         <Route path="/gradelevel" render={() => <GradeLevel
           videos={this.state.videos}
           title="Grade Level"
-          tags={this.getGradeLevels()}
           />} />
           <Route path="/genre" render={() => <Genre
             videos={this.state.videos}

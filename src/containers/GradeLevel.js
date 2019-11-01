@@ -23,20 +23,22 @@ class GradeLevel extends Component {
   }
 
   handleClick(event) {
-    let filteredVideos = []
-
-    this.props.videos.forEach((video) => {
-      if (video.snippet.tags.filter((tag) => tag.match(/^grade/i))) {
-        filteredVideos.push(video)
-      }})
-
-      this.setState({ filteredVideos: filteredVideos })
+    debugger;
+    // let filteredVideos = []
+    //
+    // this.props.videos.forEach((video) => {
+    //   if (video.snippet.tags.filter((tag) => tag.match(/^grade/i))) {
+    //     filteredVideos.push(video)
+    //   }})
+    //
+    //   this.setState({ filteredVideos: filteredVideos })
     }
 
     renderButtons() {
-      return this.props.tags.map(level => {
-        return <Button klass='link-button black' text={level} handleClick={this.handleClick} key="level" />
-      })
+      debugger;
+      // return this.props.tags.map(level => {
+      //   return <Button klass='link-button black' text={level} handleClick={this.handleClick} key="level" />
+      // })
     }
 
     renderVideos() {

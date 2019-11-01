@@ -17,44 +17,53 @@ class ARLevel extends Component {
 /*
 factor functions out into another file
 */
-  tagMatches(tag, arLevel) {
-    if (tag.match(/^ar/i) && this.inRange(tag, arLevel)) {
-      return true
-    } else {
-      return false
-    }
-  }
-
-  inRange(tag, arLevel) {
-    let arRange = tag.split(/[a-zA-Z]+|\s+|-/).slice(2)
-    let arLow = arRange[0]
-    let arHi = arRange[1]
-
-    return (arLow >= arLevel[0] && arHi <= arLevel[1]) ? true : false
-  }
+  // tagMatches(tag, arLevel) {
+  //   if (tag.match(/^ar/i) && this.inRange(tag, arLevel)) {
+  //     return true
+  //   } else {
+  //     return false
+  //   }
+  // }
+  //
+  // inRange(tag, arLevel) {
+  //   let arRange = tag.split(/[a-zA-Z]+|\s+|-/).slice(2)
+  //   let arLow = arRange[0]
+  //   let arHi = arRange[1]
+  //
+  //   return (arLow >= arLevel[0] && arHi <= arLevel[1]) ? true : false
+  // }
 
 ///////
 
   handleClick(event) {
     let filteredVideos = []
+
     let arLevel = event.target.textContent.split(/[a-zA-Z]+|\s+|-/)
 
     this.props.videos.forEach((video) => {
-      if (video.snippet.tags.filter((tag) => this.tagMatches(tag, arLevel)).length > 0) {
+      if (video.ar_lvl_low >= arLevel[0] && video.ar_lvl_high <= arLevel[1]){
         filteredVideos.push(video)
       }})
+      // if (video.filter((tag) => this.tagMatches(tag, arLevel)).length > 0) {
+      //   filteredVideos.push(video)
+      // }})
+    //
+    // this.props.videos.forEach((video) => {
+    //   if (video.snippet.tags.filter((tag) => this.tagMatches(tag, arLevel)).length > 0) {
+    //     filteredVideos.push(video)
+    //   }})
 
       this.setState({ filteredVideos: filteredVideos })
     }
 
     renderButtons() {
-      return this.props.tags.map(level => {
+      return this.props.arLevels.map(level => {
         return <Button klass='link-button black' text={level} key={level} handleClick={this.handleClick} />
       })
     }
 
     renderVideos() {
-      return this.state.filteredVideos.map(v => <VideoCard key={v.id} id={v.id} tags={v.snippet.tags}  title={v.snippet.title} thumbnails={v.snippet.thumbnails} />)
+      return this.state.filteredVideos.map(v => <VideoCard key={v.id} id={v.embed_id} title={v.title} />)
     }
 
     render() {
