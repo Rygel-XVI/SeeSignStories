@@ -1,15 +1,3 @@
-// import React from 'react'
-// import {useUser} from './context/auth'
-// import AuthenticatedApp from './AuthenticatedApp'
-// import UnauthenticatedApp from './UnauthenticatedApp'
-//
-//
-// function App() {
-//   const user = useUser()
-//   return user ? <AuthenticatedApp /> : <UnauthenticatedApp />
-// }
-// export App
-
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './App.css';
@@ -23,18 +11,13 @@ import SignedPDFs from './components/SignedPDFs'
 import Banner from './components/Banner'
 import NavBar from './containers/NavBar'
 import DockedNav from './containers/DockedNav'
-import AdminRoutes from './containers/AdminRoutes'
-import User from './containers/User'
-import PrivateRoute from './components/PrivateRoute'
-import Login from './components/Login'
 
-const LoggedInContext = React.createContext('logged-in');
 
-class App extends Component {
+
+class UnauthenticatedApp extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      loggedIn: false,
       etag: '',
       videos: [],
       opts: {
@@ -69,11 +52,6 @@ class App extends Component {
     })
   }
 
-  // requireAuth() {
-  //   debugger;
-  //   return this.state.loggedIn
-  // }
-
   componentDidMount() {
     this.fetchVideos()
   }
@@ -91,9 +69,7 @@ class App extends Component {
         {this.renderNav()}
         <div className='routes'>
           <Switch>
-            <PrivateRoute path="/user/interface" component={User} loggedIn={this.state.loggedIn} />
             <Route exact path="/" render={() => <Main videos={this.state.videos} />} />
-            <Route path="/login" component={Login} />
             <Route path="/about" render={() => <About />} />
             <Route path="/pdf" render={() => <SignedPDFs />} />
             <Route path="/arlevel" render={() => <ARLevel
@@ -117,7 +93,4 @@ class App extends Component {
     )}
 }
 
-export default App;
-
-
-// <Route exact path="/user/interface" component={User} onEnter={this.requireAuth()}/>
+export default UnauthenticatedApp;

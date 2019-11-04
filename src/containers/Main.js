@@ -8,7 +8,7 @@ class Main extends Component {
   }
 
   displaySOW() {
-    debugger;
+    // debugger;
     let sow = this.props.videos.find(v => v.story_of_week)
     return sow !== undefined ? <StoryOfWeek sow={sow} /> : "No Story of the Week"
   }
