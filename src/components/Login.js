@@ -6,14 +6,14 @@ class Login extends Component {
 
   renderLoginLogout() {
     debugger;
-    return <Button key="logout" klass='logout' handleClick={this.handleClick} />
+    return <Button key="logout" klass='logout' handleClick={this.handleClick} loggedIn={this.props.loggedIn}/>
   }
 
   render() {
 
     return (
       <div classNames='login'>
-      <h1>"login"</h1>
+      <h1>login button</h1>
         {this.renderLoginLogout()}
       </div>
     )

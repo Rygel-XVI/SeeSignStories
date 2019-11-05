@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router-dom'
 
 import Login from './Login'
+import User from '../containers/User'
 
 
 class PrivateRoute extends Component {
 
   renderPrivateRoute() {
     debugger;
-    return this.props.loggedIn ? <Route { ...this.props } /> : <Redirect to='/login' compoennt={Login}/>
+    return this.props.loggedIn ? <Route {...this.props} /> : <Redirect to="/login" />
   }
 
   render() {
@@ -20,14 +21,5 @@ class PrivateRoute extends Component {
     )}
 }
 
-//
-// = ({ loggedIn, ...props }) => (
-//   {loggedIn ? <Route { ...props } /> : <Redirect to={Login}/>}
-// )
 
 export default PrivateRoute
-
-
-// <Redirect to={{pathname: "/login", state: { from: location }
-//   }}
-// />

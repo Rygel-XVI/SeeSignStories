@@ -4,7 +4,7 @@ import Button from '../components/Button';
 
 class User extends Component {
 
-  renderLoginLogout() {
+  renderLogout() {
     debugger;
     // return <Button key="logout" klass='logout' handleClick={this.handleClick} />
   }
@@ -14,7 +14,7 @@ class User extends Component {
     return (
       <div className='user-interface'>
       "User"
-      {this.renderLoginLogout()}
+      {this.renderLogout()}
       </div>
     )
 

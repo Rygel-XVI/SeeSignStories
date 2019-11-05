@@ -91,9 +91,8 @@ class App extends Component {
         {this.renderNav()}
         <div className='routes'>
           <Switch>
-            <PrivateRoute path="/user/interface" component={User} loggedIn={this.state.loggedIn} />
+
             <Route exact path="/" render={() => <Main videos={this.state.videos} />} />
-            <Route path="/login" component={Login} />
             <Route path="/about" render={() => <About />} />
             <Route path="/pdf" render={() => <SignedPDFs />} />
             <Route path="/arlevel" render={() => <ARLevel
@@ -109,6 +108,10 @@ class App extends Component {
               videos={this.state.videos}
               text="genre"
             />} />
+
+            <Route path="/login" render={() => <Login loggedIn={this.state.loggedIn} />} />
+
+            <PrivateRoute path="/iteachwithmyhands" component={User} loggedIn={this.state.loggedIn} />
           </Switch>
         </div>
       </ Router>
