@@ -24,13 +24,14 @@ class GradeLevel extends Component {
 
   handleClick(event) {
     let filteredVideos = []
+    let gradeTarget = event.target.textContent
 
     this.props.videos.forEach((video) => {
-      if (video.snippet.tags.filter((tag) => tag.match(/^grade/i))) {
+      if (!!video.grade && video.grade.slice(6) == gradeTarget) {
         filteredVideos.push(video)
-      }})
-
-      this.setState({ filteredVideos: filteredVideos })
+      }
+    })
+    this.setState({ filteredVideos: filteredVideos })
     }
 
     renderButtons() {
@@ -40,7 +41,7 @@ class GradeLevel extends Component {
     }
 
     renderVideos() {
-      return this.state.filteredVideos.map(v => <VideoCard key={v.id} id={v.id} tags={v.snippet.tags}  title={v.snippet.title} thumbnails={v.snippet.thumbnails}/>)
+      return this.state.filteredVideos.map(v => <VideoCard key={v.id} id={v.embed_id} title={v.title}/>)
     }
 
     render() {

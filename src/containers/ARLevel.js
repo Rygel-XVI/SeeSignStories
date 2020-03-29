@@ -37,13 +37,12 @@ factor functions out into another file
 
   handleClick(event) {
     let filteredVideos = []
-    let arLevel = event.target.textContent.split(/[a-zA-Z]+|\s+|-/)
-
+    let arLevel = event.target.textContent.split(/[a-zA-Z]+|\s+|-/)[0]
     this.props.videos.forEach((video) => {
-      if (video.snippet.tags.filter((tag) => this.tagMatches(tag, arLevel)).length > 0) {
+      if (video.ar_lvl_low !== null && video.ar_lvl_low <= arLevel && video.ar_lvl_high >= arLevel) {
         filteredVideos.push(video)
-      }})
-
+      }
+    })
       this.setState({ filteredVideos: filteredVideos })
     }
 
@@ -54,7 +53,7 @@ factor functions out into another file
     }
 
     renderVideos() {
-      return this.state.filteredVideos.map(v => <VideoCard key={v.id} id={v.id} tags={v.snippet.tags}  title={v.snippet.title} thumbnails={v.snippet.thumbnails} />)
+      return this.state.filteredVideos.map(v => <VideoCard key={v.id} id={v.embed_id}   title={v.title} />)
     }
 
     render() {
@@ -62,12 +61,12 @@ factor functions out into another file
       return (
         <div className="video-filter-container">
         <h1>Accelerated Reader Level</h1>
-        <div className="buttons-div">
-        {this.renderButtons()}
-        </div>
-        <div className="videos">
-        {this.renderVideos()}
-        </div>
+          <div className="buttons-div">
+          {this.renderButtons()}
+          </div>
+          <div className="videos">
+          {this.renderVideos()}
+          </div>
         </div>
       )}
     }

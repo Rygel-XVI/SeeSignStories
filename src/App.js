@@ -29,15 +29,13 @@ class App extends Component {
 
 // setting tag filters for routes
 getARLevels() {
-  let tags = this.state.videos.map(v => v.snippet.tags.filter(t => t.match(/^ar/i))).flat()
-  tags = tags.map(s => s.slice(3)).sort()
-  return [...new Set(tags)]
+  let ar_levels = this.state.videos.filter(video => !!video.ar_lvl_low).map(video => [video.ar_lvl_low, video.ar_lvl_high] ).flat().sort()
+  return [...new Set(ar_levels)]
 }
 
 getGradeLevels() {
-  let tags = this.state.videos.map(v => v.snippet.tags.filter(t => t.match(/^grade/i))).flat()
-  tags = tags.map(s => s.slice(6)).sort()
-  return [...new Set(tags)]
+  let grades = this.state.videos.filter(video => !!video.grade).map(video => video.grade.slice(6)).flat().sort()
+  return [...new Set(grades)]
 }
 
 renderNav() {
@@ -48,30 +46,19 @@ renderNav() {
 /*
 Move the following to Redux note to self...add redux...
 */
-/// fetch requests
-
-  fetchVideoIds() {
-    let vId = []
-    fetch(`https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_KEY}&channelId=${process.env.REACT_APP_CHANNEL_ID}&part=snippet,id&type=video&maxResults=50`)
-      .then(resp => resp.json())
-      .then((json) => {
-        vId = json.items.map(v => v.id.videoId).join(',')
-        this.fetchVideoTags(vId)
-      })
-    }
-
-    fetchVideoTags(videoIdString) {
-      fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoIdString}&key=${process.env.REACT_APP_KEY}`)
-        .then(resp => resp.json())
-        .then((json) => {
-          this.setState({
-            videos: json.items
+      
+      fetchVideos() {
+        fetch(`https://seesignstories-rails-api.herokuapp.com/`)
+          .then(resp => resp.json())
+          .then((json) => {
+            this.setState({
+              videos: json
+            })
           })
-        })
       }
 
       componentDidMount() {
-        this.fetchVideoIds()
+        this.fetchVideos()
       }
 
       render() {
