@@ -351,6 +351,10 @@ button.white {
   background: white;
 }
 
+button.yellow {
+  background: yellow;
+}
+
 .about {
   border-width: 2px 2px 0px 2px;
   border-style: solid;

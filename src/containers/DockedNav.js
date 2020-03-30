@@ -7,7 +7,7 @@ class DockedNav extends Component {
     return (
       <div className="buttons-div docked">
       <LinkButton text="Home" klass="button link-button white" path="" />
-
+      <LinkButton text="Chapter Books" klass="button link-button yellow" path="chapterbooks" />
       <LinkButton text="AR Level" klass="button link-button red" path="arlevel" />
       <LinkButton text="Grade" klass="button link-button orange" path="gradelevel"/>
       <LinkButton text="Genre" klass="button link-button green" path="genre"/>
