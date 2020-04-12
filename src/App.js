@@ -7,10 +7,12 @@ import About from './components/About'
 import ARLevel from './containers/ARLevel'
 import GradeLevel from './containers/GradeLevel'
 import Genre from './containers/Genre'
+import ChapterBooks from './containers/ChapterBooks'
 import SignedPDFs from './components/SignedPDFs'
 import Banner from './components/Banner'
 import NavBar from './containers/NavBar'
 import DockedNav from './containers/DockedNav'
+import ChapterBookVideos from './containers/ChapterBookVideos'
 
 
 
@@ -49,6 +51,8 @@ Move the following to Redux note to self...add redux...
       
       fetchVideos() {
         fetch(`https://seesignstories-rails-api.herokuapp.com/`)
+        // fetch(`http://localhost:3000`)
+
           .then(resp => resp.json())
           .then((json) => {
             this.setState({
@@ -75,6 +79,14 @@ Move the following to Redux note to self...add redux...
           <div className='routes'>
           <Switch>
           <Route exact path="/" render={() => <Main videos={this.state.videos} />} />
+          // <Route exact path="/chapterbooks/videos" render={() => <ChapterBookVideos videos={this.state.videos}/>} />  // look into nested paths
+          <Route path="/chapterbooks" render={() => <ChapterBooks
+            videos={this.state.videos}
+            text="Chapter Books"
+            />} />
+          <Route path="/chapterbooks/:series" render={() => <ChapterBookVideos 
+             videos={this.getVideos} /> }/> 
+
           <Route path="/about" render={() => <About />} />
           <Route path="/pdf" render={() => <SignedPDFs />} />
           <Route path="/arlevel" render={() => <ARLevel

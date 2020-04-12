@@ -375,3 +375,23 @@ button.yellow {
   font-size: 24px;
   margin: 2%;
 }
+
+.chapterbooks {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.spacer {
+  display: flex;
+  flex: auto;
+  justify-content: center;
+}
+
+a img {
+  height: 40%;
+  width: auto;
+  margin: 1%;
+  padding: 2%;
+  background-color: #445261;
+}
