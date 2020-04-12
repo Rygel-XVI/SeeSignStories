@@ -80,12 +80,13 @@ Move the following to Redux note to self...add redux...
           <Switch>
           <Route exact path="/" render={() => <Main videos={this.state.videos} />} />
           // <Route exact path="/chapterbooks/videos" render={() => <ChapterBookVideos videos={this.state.videos}/>} />  // look into nested paths
-          <Route path="/chapterbooks" render={() => <ChapterBooks
+          <Route path="/videos" render={() => <ChapterBookVideos 
+             videos={this.getVideos} /> }/> 
+          <Route exact path="/chapterbooks" render={() => <ChapterBooks
             videos={this.state.videos}
             text="Chapter Books"
             />} />
-          <Route path="/chapterbooks/:series" render={() => <ChapterBookVideos 
-             videos={this.getVideos} /> }/> 
+
 
           <Route path="/about" render={() => <About />} />
           <Route path="/pdf" render={() => <SignedPDFs />} />

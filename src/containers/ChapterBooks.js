@@ -17,13 +17,13 @@ class ChapterBooks extends Component {
 
     return (
       <div className='chapterbooks'>
-        <Link className='spacer' key='dinosaursBeforeDark' to="/chapterbooks/dinosaursbeforedark">
+        <Link className='spacer' key='dinosaursBeforeDark' to="/videos">
           <img className="video" src={dinosaursBeforeDark} alt="Cover of Magic Treehouse: Dinosaurs Before Dark"/>
         </Link>
-        <Link className='spacer' key='knightAtDawn' to="/chapterbooks/knightatdawn">
+        <Link className='spacer' key='knightAtDawn' to="/videos">
           <img className="video" src={knightAtDawn} alt="Cover of Magic Treehouse: The Knight At Dawn"/>
         </Link>
-        <Link className='spacer' key='knightAtDawn' to="/chapterbooks/knightatdawn">
+        <Link className='spacer' key='knightAtDawn' to="/videos">
           <img className="video" src={knightAtDawn} alt="Cover of Magic Treehouse: The Knight At Dawn"/>
         </Link>
       </div>
