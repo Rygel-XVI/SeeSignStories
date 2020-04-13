@@ -9,21 +9,17 @@ import ChapterBookVideos from './ChapterBookVideos'
 
 class ChapterBooks extends Component {
 
-  getVideos(e) {
-    debugger;
-  }
-
   render() {
 
     return (
       <div className='chapterbooks'>
-        <Link className='spacer' key='dinosaursBeforeDark' to="/videos">
+        <Link className='spacer' key='dinosaursBeforeDark' to="/chapterbooks/dinosaursbeforedark">
           <img className="video" src={dinosaursBeforeDark} alt="Cover of Magic Treehouse: Dinosaurs Before Dark"/>
         </Link>
         <Link className='spacer' key='knightAtDawn' to="/videos">
           <img className="video" src={knightAtDawn} alt="Cover of Magic Treehouse: The Knight At Dawn"/>
         </Link>
-        <Link className='spacer' key='knightAtDawn' to="/videos">
+        <Link className='spacer' key='knightAtDawn2' to="/videos">
           <img className="video" src={knightAtDawn} alt="Cover of Magic Treehouse: The Knight At Dawn"/>
         </Link>
       </div>

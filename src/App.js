@@ -44,6 +44,10 @@ renderNav() {
   return window.innerWidth > 740 ? <NavBar /> : <DockedNav />
 }
 
+getChapterBook() {
+  debugger;
+}
+
 
 /*
 Move the following to Redux note to self...add redux...
@@ -80,27 +84,27 @@ Move the following to Redux note to self...add redux...
           <Switch>
           <Route exact path="/" render={() => <Main videos={this.state.videos} />} />
           // <Route exact path="/chapterbooks/videos" render={() => <ChapterBookVideos videos={this.state.videos}/>} />  // look into nested paths
-          <Route path="/videos" render={() => <ChapterBookVideos 
-             videos={this.getVideos} /> }/> 
+          <Route exact path="/chapterbooks/:series" render={() => <ChapterBookVideos 
+             videos={this.getChapterBook} /> }/> 
           <Route exact path="/chapterbooks" render={() => <ChapterBooks
             videos={this.state.videos}
             text="Chapter Books"
             />} />
 
 
-          <Route path="/about" render={() => <About />} />
-          <Route path="/pdf" render={() => <SignedPDFs />} />
-          <Route path="/arlevel" render={() => <ARLevel
+          <Route exact path="/about" render={() => <About />} />
+          <Route exact path="/pdf" render={() => <SignedPDFs />} />
+          <Route exact path="/arlevel" render={() => <ARLevel
             videos={this.state.videos}
             title="Accelerated Reader Level"
             tags={this.getARLevels()}
             />} />
-          <Route path="/gradelevel" render={() => <GradeLevel
+          <Route exact path="/gradelevel" render={() => <GradeLevel
             videos={this.state.videos}
             title="Grade Level"
             tags={this.getGradeLevels()}
             />} />
-          <Route path="/genre" render={() => <Genre
+          <Route exact path="/genre" render={() => <Genre
             videos={this.state.videos}
             text="genre"
             />} />
