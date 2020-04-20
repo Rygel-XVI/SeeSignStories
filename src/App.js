@@ -44,8 +44,8 @@ renderNav() {
   return window.innerWidth > 740 ? <NavBar /> : <DockedNav />
 }
 
-getChapterBook() {
-  debugger;
+getChapterBooks() {
+  return this.state.videos.filter( v => v.is_chapter_book )
 }
 
 
@@ -54,8 +54,8 @@ Move the following to Redux note to self...add redux...
 */
       
       fetchVideos() {
-        fetch(`https://seesignstories-rails-api.herokuapp.com/`)
-        // fetch(`http://localhost:3000`)
+        // fetch(`https://seesignstories-rails-api.herokuapp.com/`)
+        fetch(`http://localhost:3000`)
 
           .then(resp => resp.json())
           .then((json) => {
@@ -82,31 +82,27 @@ Move the following to Redux note to self...add redux...
           {this.renderNav()}
           <div className='routes'>
           <Switch>
-          <Route exact path="/" render={() => <Main videos={this.state.videos} />} />
-          // <Route exact path="/chapterbooks/videos" render={() => <ChapterBookVideos videos={this.state.videos}/>} />  // look into nested paths
-          <Route exact path="/chapterbooks/:series" render={() => <ChapterBookVideos 
-             videos={this.getChapterBook} /> }/> 
-          <Route exact path="/chapterbooks" render={() => <ChapterBooks
-            videos={this.state.videos}
-            text="Chapter Books"
-            />} />
+          <Route exact strict path="/" render={() => <Main videos={this.state.videos} />} />
 
-
-          <Route exact path="/about" render={() => <About />} />
-          <Route exact path="/pdf" render={() => <SignedPDFs />} />
-          <Route exact path="/arlevel" render={() => <ARLevel
+          <Route exact strict path="about" render={() => <About />} />
+          <Route exact strict path="/pdf" render={() => <SignedPDFs />} />
+          <Route exact strict path="/arlevel" render={() => <ARLevel
             videos={this.state.videos}
             title="Accelerated Reader Level"
             tags={this.getARLevels()}
             />} />
-          <Route exact path="/gradelevel" render={() => <GradeLevel
+          <Route exact strict path="/gradelevel" render={() => <GradeLevel
             videos={this.state.videos}
             title="Grade Level"
             tags={this.getGradeLevels()}
             />} />
-          <Route exact path="/genre" render={() => <Genre
+          <Route exact strict path="/genre" render={() => <Genre
             videos={this.state.videos}
             text="genre"
+            />} />
+          <Route exact strict path="/chapterbooks" render={() => <ChapterBooks
+            videos={this.getChapterBooks()}
+            text="Chapter Books"
             />} />
           </Switch>
           </div>

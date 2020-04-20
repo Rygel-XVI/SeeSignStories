@@ -49,6 +49,16 @@ body {
     font-size: 15px;
     height: 15%;
   }
+  
+  .spacer img {
+    justify-content: center;
+    height: 150px;
+    width: auto;
+    margin: 10px;
+    padding: 5px;
+    border: 8px;
+    background-color: #445261;
+  }
 }
 
 @media only screen and (min-width: 740px) {
@@ -164,6 +174,15 @@ body {
     /* font-size: 18px; */
   }
 
+  .spacer img {
+    justify-content: center;
+    height: 250px;
+    width: auto;
+    margin: 20px;
+    padding: 10px;
+    border: 8px;
+    background-color: #445261;
+  }
 
 }
 
@@ -222,6 +241,16 @@ body {
     width: 200px;
     min-width: 100px;
     height: 150px;
+  }
+  
+  .spacer img {
+    justify-content: center;
+    height: 375px;
+    width: auto;
+    margin: 30px;
+    padding: 10px;
+    border: 8px;
+    background-color: #445261;
   }
 
 }
@@ -379,19 +408,13 @@ button.yellow {
 .chapterbooks {
   height: 100%;
   width: 100%;
-  display: flex;
-}
-
-.spacer {
-  display: flex;
-  flex: auto;
+  text-align: center;
+  align-content: center;
   justify-content: center;
 }
 
-a img {
-  height: 40%;
-  width: auto;
-  margin: 1%;
-  padding: 2%;
-  background-color: #445261;
-}
+/* .spacer {
+  justify-content: center;
+} */
+
+
