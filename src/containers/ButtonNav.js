@@ -9,6 +9,7 @@ class ButtonNav extends Component {
       <LinkButton text="AR Level" klass="button link-button red" path="arlevel" />
       <LinkButton text="Grade" klass="button link-button orange" path="gradelevel"/>
       <LinkButton text="Genre" klass="button link-button green" path="genre"/>
+      <LinkButton text="Chapter Books" klass="button link-button yellow" path="chapterbooks"/>
       </ div>
     )
   }

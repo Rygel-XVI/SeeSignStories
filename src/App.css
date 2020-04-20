@@ -49,6 +49,16 @@ body {
     font-size: 15px;
     height: 15%;
   }
+  
+  .spacer img {
+    justify-content: center;
+    height: 150px;
+    width: auto;
+    margin: 10px;
+    padding: 5px;
+    border: 8px;
+    background-color: #445261;
+  }
 }
 
 @media only screen and (min-width: 740px) {
@@ -164,6 +174,15 @@ body {
     /* font-size: 18px; */
   }
 
+  .spacer img {
+    justify-content: center;
+    height: 250px;
+    width: auto;
+    margin: 20px;
+    padding: 10px;
+    border: 8px;
+    background-color: #445261;
+  }
 
 }
 
@@ -222,6 +241,16 @@ body {
     width: 200px;
     min-width: 100px;
     height: 150px;
+  }
+  
+  .spacer img {
+    justify-content: center;
+    height: 375px;
+    width: auto;
+    margin: 30px;
+    padding: 10px;
+    border: 8px;
+    background-color: #445261;
   }
 
 }
@@ -351,6 +380,10 @@ button.white {
   background: white;
 }
 
+button.yellow {
+  background: yellow;
+}
+
 .about {
   border-width: 2px 2px 0px 2px;
   border-style: solid;
@@ -371,3 +404,17 @@ button.white {
   font-size: 24px;
   margin: 2%;
 }
+
+.chapterbooks {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+}
+
+/* .spacer {
+  justify-content: center;
+} */
+
+
