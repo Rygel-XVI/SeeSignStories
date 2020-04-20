@@ -2,17 +2,21 @@
   "name": "see-sign-stories",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=8.0.0",
+    "npm": ">=6.0.0"
+  },
   "dependencies": {
     "@babel/core": "^7.9.0",
     "react": "^16.13.1",
     "react-awesome-button": "^6.1.2",
     "react-dom": "^16.13.1",
     "react-full-screen": "^0.2.4",
-    "react-player": "^1.12.0",
+    "react-player": "^1.15.3",
     "react-responsive": "^8.0.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.4.1",
-    "react-youtube": "^7.9.0",
+    "react-youtube": "^7.11.2",
     "screenfull": "^4.2.1"
   },
   "scripts": {
