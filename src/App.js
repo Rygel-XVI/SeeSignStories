@@ -12,7 +12,6 @@ import SignedPDFs from './components/SignedPDFs'
 import Banner from './components/Banner'
 import NavBar from './containers/NavBar'
 import DockedNav from './containers/DockedNav'
-import ChapterBookVideos from './containers/ChapterBookVideos'
 
 
 
