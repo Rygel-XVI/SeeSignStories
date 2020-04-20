@@ -14,37 +14,17 @@ class ARLevel extends Component {
   }
 
 
-/*
-factor functions out into another file
-*/
-  tagMatches(tag, arLevel) {
-    if (tag.match(/^ar/i) && this.inRange(tag, arLevel)) {
-      return true
-    } else {
-      return false
-    }
+  filterVideosByARLevel(arLevel) {
+    return this.props.videos.filter(video => video.ar_lvl_low !== null && video.ar_lvl_low <= arLevel && video.ar_lvl_high >= arLevel).map(v => v)
   }
-
-  inRange(tag, arLevel) {
-    let arRange = tag.split(/[a-zA-Z]+|\s+|-/).slice(2)
-    let arLow = arRange[0]
-    let arHi = arRange[1]
-
-    return (arLow >= arLevel[0] && arHi <= arLevel[1]) ? true : false
-  }
-
-///////
 
   handleClick(event) {
-    let filteredVideos = []
     let arLevel = event.target.textContent.split(/[a-zA-Z]+|\s+|-/)[0]
-    this.props.videos.forEach((video) => {
-      if (video.ar_lvl_low !== null && video.ar_lvl_low <= arLevel && video.ar_lvl_high >= arLevel) {
-        filteredVideos.push(video)
-      }
-    })
-      this.setState({ filteredVideos: filteredVideos })
-    }
+    let filteredVideos = event.target.textContent === "All" ? this.props.videos : this.filterVideosByARLevel(arLevel)
+
+    this.setState({ filteredVideos: filteredVideos })
+  }
+    
 
     renderButtons() {
       return this.props.tags.map(level => {
@@ -55,6 +35,10 @@ factor functions out into another file
     renderVideos() {
       return this.state.filteredVideos.map(v => <VideoCard key={v.id} id={v.embed_id}   title={v.title} />)
     }
+    
+    renderAllButton() {
+      return <Button klass='link-button black' text="All" key="All" handleClick={this.handleClick} />
+    }
 
     render() {
 
@@ -62,6 +46,7 @@ factor functions out into another file
         <div className="video-filter-container">
         <h1>Accelerated Reader Level</h1>
           <div className="buttons-div">
+          {this.renderAllButton()}
           {this.renderButtons()}
           </div>
           <div className="videos">
