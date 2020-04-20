@@ -54,8 +54,7 @@ Move the following to Redux note to self...add redux...
 */
       
       fetchVideos() {
-        // fetch(`https://seesignstories-rails-api.herokuapp.com/`)
-        fetch(`http://localhost:3000`)
+        fetch(`https://seesignstories-rails-api.herokuapp.com/`)
 
           .then(resp => resp.json())
           .then((json) => {
