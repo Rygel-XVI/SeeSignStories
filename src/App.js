@@ -82,7 +82,7 @@ Move the following to Redux note to self...add redux...
           <Switch>
           <Route exact strict path="/" render={() => <Main videos={this.state.videos} />} />
 
-          <Route exact strict path="about" render={() => <About />} />
+          <Route exact strict path="/about" render={() => <About />} />
           <Route exact strict path="/pdf" render={() => <SignedPDFs />} />
           <Route exact strict path="/arlevel" render={() => <ARLevel
             videos={this.state.videos}
