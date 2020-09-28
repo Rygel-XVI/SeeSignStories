@@ -1,4 +1,4 @@
-[seesignstories.herokuapp.com](seesignstories.herokuapp.com)
+[seesignstories.herokuapp.com](http://seesignstories.herokuapp.com)
 This may take a moment to load since it is on heroku's free dyno.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
