@@ -21,6 +21,7 @@ class Main extends Component {
     return (
       <div className="main videos">
       <h2>Welcome to See Sign Stories. Here you can find storybooks that are spoken aloud and signed. Please read along. This website is still in early stage development if it is unaccessible you can find the videos on Youtube.</h2>
+      <h3>This website may take a minute to load so the dynos can spin up</h3>
       </div>
     )}
 }
